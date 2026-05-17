@@ -61,7 +61,7 @@ const Navbar = () => {
                         </button>
                     </Link>
 
-                    <Link href={'/singup'}>
+                    <Link href={'/login'}>
                         <button className="button-primary">
                             Log In
                         </button>

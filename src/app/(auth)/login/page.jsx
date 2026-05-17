@@ -24,18 +24,6 @@ const SingupPage = () => {
             >
                 <TextField
                     isRequired
-                    name="name"
-                    type="text"
-                    className="rounded"
-
-                >
-                    <Label>Name</Label>
-                    <Input placeholder="Mishu Debnath" />
-                    <FieldError />
-                </TextField>
-
-                <TextField
-                    isRequired
                     name="email"
                     type="email"
                     validate={(value) => {
@@ -74,8 +62,8 @@ const SingupPage = () => {
                     <FieldError />
                 </TextField>
                 <div className="flex gap-2">
-                    <button type="submit" className="button-primary">
-                        Sing UP
+                    <button type="submit" className="button-primary"> 
+                        Log In
                     </button>
 
 
