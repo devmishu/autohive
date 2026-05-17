@@ -1,11 +1,11 @@
 import React from 'react';
 
-const SignupPage = () => {
+const SingupPage = () => {
     return (
-        <div className='app-container my-30'>
-            SignupPage 
+        <div>
+            Singuppage
         </div>
     );
 };
 
-export default SignupPage;
+export default SingupPage;

@@ -25,7 +25,7 @@ const Navbar = () => {
                 {/* Logo */}
                 <div className="flex items-center space-x-2 text-2xl font-bold tracking-wide">
                     <span className="text-red-500 border-2 border-red-500 px-1 rounded">C</span>
-                    <span className="text-red-500 dark:text-white">Carlist</span>
+                    <span className="text-primary">Carlist</span>
                     {/* <Image className="border-2"
                         src="/assets/logo/logo.png"
                         alt="logo"
@@ -37,7 +37,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Desktop Menu (LG ONLY) */}
-                <div className="hidden lg:flex space-x-6 text-sm font-medium text-red-500 dark:text-gray-300">
+                <div className="hidden lg:flex space-x-6 text-sm font-medium text-primary">
                     {/* Links */}
                     <div className="flex items-center space-x-8">
                         {navLinks.map(link =>
@@ -54,15 +54,15 @@ const Navbar = () => {
 
                 {/* Desktop Buttons (LG ONLY) */}
                 <div className="hidden lg:flex items-center space-x-4 text-sm">
-                    <button className="hover:text-gray-300">🌐 English</button>
+
                     <Link href={'/signup'}>
-                        <button className="border border-gray-600 px-4 py-2 rounded hover:bg-gray-800 transition text-red-500 dark:text-gray-300">
+                        <button className="button-outline">
                             Sing Up
                         </button>
                     </Link>
 
                     <Link href={'/singup'}>
-                        <button className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded  font-semibold transition">
+                        <button className="button-primary">
                             Log In
                         </button>
                     </Link>
@@ -72,7 +72,7 @@ const Navbar = () => {
 
                 {/* Mobile Menu Icon (BELOW LG) */}
                 <button
-                    className="lg:hidden text-3xl cursor-pointer"
+                    className="lg:hidden text-3xl cursor-pointer text-primary"
                     onClick={() => setOpen(!open)}
                 >
                     {open ? <HiX /> : <HiMenu />}
@@ -97,15 +97,13 @@ const Navbar = () => {
 
                     {/* Buttons */}
                     <div className="flex flex-col space-y-3 pt-4">
-                        <button className="border border-gray-600 px-4 py-2 rounded hover:bg-gray-800">
-                            🌐 English
-                        </button>
-                        <button className="border border-gray-600 px-4 py-2 rounded hover:bg-gray-800">
+
+                        <button className="button-outline text-white">
                             Sing Up
                         </button>
-                        <button className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded text-white font-semibold">
-                            Sing IN
-                        </button>
+                        <button className="button-primary">
+                            Log In
+                        </button> 
                     </div>
 
                 </div>
