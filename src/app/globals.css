@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@import "@heroui/styles";
+
+
+
+:root {
+  /* Override any color variable */
+  --accent: oklch(0.7 0.25 260);
+  --success: oklch(0.65 0.15 155);
+
+}
+
+@layer components {
+  /* .btn-primary {
+    @apply bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition;
+  } */
+
+  /* .card-box {
+    @apply bg-white dark:bg-slate-900 p-5 rounded-2xl shadow;
+  } */
+  .app-container {
+    @apply container mx-auto px-5 my-5
+  }
+
+}
