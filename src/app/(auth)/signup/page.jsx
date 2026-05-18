@@ -13,12 +13,13 @@ const SingupPage = () => {
     const handleSignup = async (e) => {
         e.preventDefault();
 
-        const formData = new FormData(e.currentTarget);
+        const formData = new FormData(e.target);
 
         // Convert FormData to a readable object
         const signupData = Object.fromEntries(formData.entries());
 
         console.log(signupData);
+
         const { name, userImage, email, password } = signupData
 
 
@@ -35,7 +36,7 @@ const SingupPage = () => {
             alert('Acount created Sessufully')
         }
         if (error) {
-            alert(error.statusText);
+            alert(error.message);
         }
 
     };

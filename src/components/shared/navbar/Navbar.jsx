@@ -1,4 +1,6 @@
 "use client"
+
+import { signOut, useSession } from "@/lib/auth-client";
 import { ThemeSwitch } from "@/theme/ThemeSwitch";
 import Link from "next/link";
 // import Image from "next/image";
@@ -6,14 +8,23 @@ import React, { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 
 
+
+
 const Navbar = () => {
     const [open, setOpen] = useState(false);
+
+    const session = useSession();
+    console.log("Session:", session);
+
+    const user = session?.data?.user;
+    console.log(user);
+
 
     const navLinks = [
         { id: 1, name: 'Home', href: '/' },
         { id: 2, name: 'Explore Cars', href: '/explorecars' },
-        { id: 3, name: 'Add Car', href: '/manage-cars/add' },
-        { id: 4, name: 'My Bookings', href: '/bookings' }, 
+        { id: 3, name: 'Add Car', href: '/manage-cars/addcar' },
+        { id: 4, name: 'My Bookings', href: '/bookings' },
     ];
 
     return (
@@ -54,18 +65,29 @@ const Navbar = () => {
 
                 {/* Desktop Buttons (LG ONLY) */}
                 <div className="hidden lg:flex items-center space-x-4 text-sm">
+                    {
+                        user ?
+                            <button
+                                onClick={() => signOut()}
+                                className="button-primary">
+                                Log Out
+                            </button> : <>
+                                <Link href={'/signup'}>
+                                    <button className="button-outline">
+                                        Sing Up
+                                    </button>
+                                </Link>
 
-                    <Link href={'/signup'}>
-                        <button className="button-outline">
-                            Sing Up
-                        </button>
-                    </Link>
 
-                    <Link href={'/login'}>
-                        <button className="button-primary">
-                            Log In
-                        </button>
-                    </Link>
+                                <Link href={'/login'}>
+                                    <button
+                                        className="button-primary">
+                                        Log In
+                                    </button>
+                                </Link>
+                            </>
+                    }
+
                     <ThemeSwitch />
 
                 </div>

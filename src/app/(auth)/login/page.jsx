@@ -1,7 +1,7 @@
 "use client"
 import { authClient } from "@/lib/auth-client";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
-import { redirect } from "next/navigation";
+// import { redirect } from "next/navigation";
 import { Icon } from "@iconify/react";
 
 const SingupPage = () => {
@@ -9,7 +9,7 @@ const SingupPage = () => {
     const handleSignin = async (e) => {
         e.preventDefault();
 
-        const formData = new FormData(e.currentTarget);
+        const formData = new FormData(e.target);
 
         // Convert FormData to a readable object
         const signinData = Object.fromEntries(formData.entries());
@@ -20,14 +20,16 @@ const SingupPage = () => {
 
         const { data, error } = await authClient.signIn.email({
             email,
-            password
+            password,
+            callbackURL: "/",
         });
 
         console.log({ data, error });
 
         if (data) {
+
             alert('Login Sessufully');
-            redirect('/')
+
         }
         if (error) {
             alert(error.message);
