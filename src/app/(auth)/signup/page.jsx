@@ -3,12 +3,13 @@
 import { authClient } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
+import { Icon } from "@iconify/react";
 
 
 
 
 const SingupPage = () => {
-    
+
     const handleSignup = async (e) => {
         e.preventDefault();
 
@@ -37,6 +38,13 @@ const SingupPage = () => {
             alert(error.statusText);
         }
 
+    };
+
+    // google signin
+    const signIn = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        });
     };
 
     return (
@@ -119,7 +127,16 @@ const SingupPage = () => {
                     </button>
 
                 </div>
+
             </Form>
+
+            <Button
+                onClick={signIn}
+                className="w-full" variant="tertiary">
+                <Icon icon="devicon:google" />
+                Sign in with Google
+            </Button>
+
         </div>
     );
 };

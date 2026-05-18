@@ -1,9 +1,8 @@
 "use client"
 import { authClient } from "@/lib/auth-client";
-import { Check } from "@gravity-ui/icons";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import { redirect } from "next/navigation";
-
+import { Icon } from "@iconify/react";
 
 const SingupPage = () => {
 
@@ -34,6 +33,13 @@ const SingupPage = () => {
             alert(error.message);
         }
 
+    };
+
+    // google signin
+    const signIn = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        });
     };
 
     return (
@@ -94,7 +100,14 @@ const SingupPage = () => {
                     </button>
 
                 </div>
+
             </Form>
+            <Button
+                onClick={signIn}
+                className="w-full" variant="tertiary">
+                <Icon icon="devicon:google" />
+                Sign in with Google
+            </Button>
         </div>
     );
 };
