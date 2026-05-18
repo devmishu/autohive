@@ -13,11 +13,12 @@ const ExploreCarsPage = async () => {
             Explorecars Page:
             <div className='mt-10 grid gap-5 sm:grid-cols-2 md:grid-cols-3'>
                 {
-                    allCars.map(car => <CarCard 
-                        key={car._id} 
+                    allCars.map(car => <CarCard
+                        key={car._id}
                         carName={car.carName}
                         imageUrl={car.imageUrl}
-                        />)
+                        id={car._id}
+                    />)
                 }
 
             </div>
