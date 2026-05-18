@@ -1,26 +1,50 @@
 "use client"
+
+import { authClient } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 
 
+
+
 const SingupPage = () => {
-    const onSubmit = (e) => {
+    
+    const handleSignup = async (e) => {
         e.preventDefault();
+
         const formData = new FormData(e.currentTarget);
-        const data = {};
-        // Convert FormData to plain object
-        formData.forEach((value, key) => {
-            data[key] = value.toString();
+
+        // Convert FormData to a readable object
+        const signupData = Object.fromEntries(formData.entries());
+
+        console.log(signupData);
+        const { name, userImage, email, password } = signupData
+
+
+        const { data, error } = await authClient.signUp.email({
+            name,
+            userImage,
+            email,
+            password
         });
-        alert(`Form submitted with: ${JSON.stringify(data, null, 2)}`);
+
+        console.log({ data, error });
+
+        if (data) {
+            alert('Acount created Sessufully')
+        }
+        if (error) {
+            alert(error.statusText);
+        }
+
     };
 
     return (
         <div className="app-container min-h-[70vh] mt-20 flex justify-center items-center">
             <Form
-                className="flex w-100  flex-col gap-4 "
+                className="flex min-w-100  flex-col gap-4 "
                 render={(props) => <form {...props} data-custom="foo" />}
-                onSubmit={onSubmit}
+                onSubmit={handleSignup}
             >
                 <TextField
                     isRequired
@@ -31,6 +55,16 @@ const SingupPage = () => {
                 >
                     <Label>Name</Label>
                     <Input placeholder="Mishu Debnath" />
+                    <FieldError />
+                </TextField>
+
+                <TextField
+                    isRequired
+                    name="userImage"
+                    type="url"
+                >
+                    <Label>Image Url</Label>
+                    <Input placeholder="Image url" className="rounded-none" />
                     <FieldError />
                 </TextField>
 

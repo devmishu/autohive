@@ -1,18 +1,39 @@
 "use client"
+import { authClient } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
+import { redirect } from "next/navigation";
 
 
 const SingupPage = () => {
-    const onSubmit = (e) => {
+
+    const handleSignin = async (e) => {
         e.preventDefault();
+
         const formData = new FormData(e.currentTarget);
-        const data = {};
-        // Convert FormData to plain object
-        formData.forEach((value, key) => {
-            data[key] = value.toString();
+
+        // Convert FormData to a readable object
+        const signinData = Object.fromEntries(formData.entries());
+
+        console.log(signinData);
+        const { email, password } = signinData;
+
+
+        const { data, error } = await authClient.signIn.email({
+            email,
+            password
         });
-        alert(`Form submitted with: ${JSON.stringify(data, null, 2)}`);
+
+        console.log({ data, error });
+
+        if (data) {
+            alert('Login Sessufully');
+            redirect('/')
+        }
+        if (error) {
+            alert(error.message);
+        }
+
     };
 
     return (
@@ -20,7 +41,7 @@ const SingupPage = () => {
             <Form
                 className="flex w-100  flex-col gap-4 "
                 render={(props) => <form {...props} data-custom="foo" />}
-                onSubmit={onSubmit}
+                onSubmit={handleSignin}
             >
                 <TextField
                     isRequired
@@ -62,7 +83,7 @@ const SingupPage = () => {
                     <FieldError />
                 </TextField>
                 <div className="flex gap-2">
-                    <button type="submit" className="button-primary"> 
+                    <button type="submit" className="button-primary">
                         Log In
                     </button>
 
