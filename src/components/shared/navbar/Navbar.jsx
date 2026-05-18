@@ -11,9 +11,9 @@ const Navbar = () => {
 
     const navLinks = [
         { id: 1, name: 'Home', href: '/' },
-        { id: 2, name: 'Cars', href: '/destinations' },
-        // { id: 3, name: 'My Bookings', href: '/bookings' },
-        // { id: 4, name: 'Add Destinations', href: '/manage-tours/add' },
+        { id: 2, name: 'Explore Cars', href: '/explorecars' },
+        { id: 3, name: 'Add Car', href: '/manage-cars/add' },
+        { id: 4, name: 'My Bookings', href: '/bookings' }, 
     ];
 
     return (
@@ -103,7 +103,7 @@ const Navbar = () => {
                         </button>
                         <button className="button-primary">
                             Log In
-                        </button> 
+                        </button>
                     </div>
 
                 </div>
