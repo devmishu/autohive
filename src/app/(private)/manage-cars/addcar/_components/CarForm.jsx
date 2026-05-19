@@ -18,6 +18,7 @@ const CarForm = () => {
         e.preventDefault();
         const form = e.target;
 
+
         const formData = new FormData(e.target);
 
         // Convert FormData to a readable object
@@ -86,23 +87,39 @@ const CarForm = () => {
                     <Select.Indicator />
                 </Select.Trigger>
                 <Select.Popover>
-                    <ListBox>
-                        <ListBox.Item id="suv" textValue="SUV">
-                            SUV
+                    <ListBox> 
+                        <ListBox.Item id="suv" textValue="suv">
+                            suv
                             <ListBox.ItemIndicator />
                         </ListBox.Item>
-                        <ListBox.Item id="sedan" textValue="Sedan">
-                            Sedan
+                        <ListBox.Item id="sedan" textValue="sedan">
+                            sedan
                             <ListBox.ItemIndicator />
                         </ListBox.Item>
-                        <ListBox.Item id="hatchback" textValue="Hatchback">
-                            Hatchback
+                        <ListBox.Item id="hatchback" textValue="hatchback">
+                            hatchback
                             <ListBox.ItemIndicator />
                         </ListBox.Item>
-                        <ListBox.Item id="luxury" textValue="Luxury">
-                            Luxury
+
+                        <ListBox.Item id="luxury" textValue="luxury">
+                            luxury
                             <ListBox.ItemIndicator />
                         </ListBox.Item>
+
+                        <ListBox.Item id="sports" textValue="sports">
+                            sports
+                            <ListBox.ItemIndicator />
+                        </ListBox.Item>
+                        <ListBox.Item id="electric" textValue="electric">
+
+                            electric
+                            <ListBox.ItemIndicator />
+                        </ListBox.Item>
+                        <ListBox.Item id="offroad" textValue="electric">
+                            offroad
+                            <ListBox.ItemIndicator />
+                        </ListBox.Item>
+
                     </ListBox>
                 </Select.Popover>
             </Select>
