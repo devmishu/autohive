@@ -7,7 +7,7 @@ import { carService } from "@/services/carService";
 const MyAddedCarsPage = async () => {
 
     const session = await auth.api.getSession({
-        headers: await headers() 
+        headers: await headers()
     });
 
     const user = session?.user;
@@ -15,22 +15,23 @@ const MyAddedCarsPage = async () => {
 
     const myCars = await carService.getMyCars(user?.id);
     console.log(myCars);
+    console.log('myCars:', myCars);
 
     return (
         <div className='app-container mt-20 '>
-            My Added Cars Page:
+            My Added Cars Page:{myCars.length}
             <div >
                 {
                     myCars.map(car => <div
-                    className="border card-primary p-4 m-3"
-                     key={car.id}>
+                        className="border card-primary p-4 m-3"
+                        key={car._id}>
                         <h1>{car.carName}</h1>
                         <h1>{car.carType}</h1>
                         <h1>{car.dailyRentPrice}</h1>
                     </div>
                     )
                 }
-            </div>
+            </div> 
         </div>
     );
 };
