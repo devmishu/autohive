@@ -30,6 +30,7 @@ const MyAddedCarsPage = async () => {
                     myCars.map(car => <MyAddedCarItem key={car._id}
                         imageUrl={car.imageUrl}
                         id={car._id}
+                        carName={car.carName}
                     />
                     )
                 }

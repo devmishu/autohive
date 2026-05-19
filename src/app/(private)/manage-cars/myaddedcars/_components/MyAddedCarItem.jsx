@@ -1,9 +1,8 @@
-"use client"
 import React from 'react';
 import DeleteAddedCar from './DeleteAddedCar';
-import { Button } from '@heroui/react';
+import EditAddedCar from './EditAddedCar';
 
-const MyAddedCarItem = ({ id, imageUrl }) => {
+const MyAddedCarItem = ({ id, imageUrl, carName }) => {
 
 
 
@@ -33,7 +32,7 @@ const MyAddedCarItem = ({ id, imageUrl }) => {
                 {/* Header (Title & Three Dots) */}
                 <div>
                     <div className="flex justify-between items-start">
-                        <h2 className="text-2xl font-bold text-primary">Toyota Corolla 2022</h2>
+                        <h2 className="text-2xl font-bold text-primary">{carName}</h2>
 
                     </div>
 
@@ -82,8 +81,8 @@ const MyAddedCarItem = ({ id, imageUrl }) => {
 
                 {/* Bottom Action Buttons */}
                 <div className="flex gap-2">
-                    <Button className="button-outline bg-transparent">Edit</Button>
 
+                    <EditAddedCar id={id} imageUrl={imageUrl} />
                     <DeleteAddedCar id={id} />
 
                 </div>

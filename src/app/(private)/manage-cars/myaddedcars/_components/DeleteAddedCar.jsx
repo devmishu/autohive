@@ -1,6 +1,5 @@
 "use client"
-// import { Envelope } from "@gravity-ui/icons";
-// import { Button, Input, Label, Modal, Surface, TextField } from "@heroui/react";
+
 import { AlertDialog, Button } from "@heroui/react";
 import { carService } from "@/services/carService";
 import { revalidateAnyPath } from "@/actions/revalidate";
@@ -15,7 +14,7 @@ const DeleteAddedCar = ({ id }) => {
 
             alert(`${data.message}`);
 
-            revalidateAnyPath("destinations");
+            revalidateAnyPath("/manage-cars/myaddedcars");
 
         } catch (error) {
             console.log(error);
@@ -55,7 +54,6 @@ const DeleteAddedCar = ({ id }) => {
             </AlertDialog.Backdrop>
         </AlertDialog >
 
-        
     );
 }
 
