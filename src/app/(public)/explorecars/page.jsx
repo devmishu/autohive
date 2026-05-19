@@ -4,9 +4,11 @@ import React from 'react';
 import SearchBar from './_components/SearchBar';
 import FilterBar from './_components/FilterBar';
 
-const ExploreCarsPage = async () => {
+const ExploreCarsPage = async ({ searchParams }) => {
 
-    const allCars = await carService?.getAllCars();
+    const sp = await searchParams;
+
+    const allCars = await carService?.getAllCars(sp?.searchTerm || '', sp?.carType || '');
     console.log(allCars);
 
     return (

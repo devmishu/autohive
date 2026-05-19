@@ -17,9 +17,9 @@ export const carService = {
         return data;
     },
 
-    getAllCars: async () => {
+    getAllCars: async (searchTerm = '', carType = '') => {
         try {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cars`);
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cars?search=${searchTerm}&type=${carType}`);
 
             const data = await res.json();
 
@@ -109,7 +109,7 @@ export const carService = {
         if (!res.ok) {
             throw new Error(data.message || 'Something went wrong');
         }
-        return data; 
+        return data;
     },
 
 }
