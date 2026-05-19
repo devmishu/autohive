@@ -25,6 +25,7 @@ const Navbar = () => {
         { id: 2, name: 'Explore Cars', href: '/explorecars' },
         { id: 3, name: 'Add Car', href: '/manage-cars/addcar' },
         { id: 4, name: 'My Added Cars', href: '/manage-cars/myaddedcars' },
+        { id: 4, name: 'My Bookings', href: '/manage-cars/mybookings' },
     ];
 
     return (
