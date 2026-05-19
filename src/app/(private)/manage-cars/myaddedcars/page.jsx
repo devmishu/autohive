@@ -2,6 +2,7 @@
 import { headers } from "next/headers";
 import { auth } from '@/lib/auth';
 import { carService } from "@/services/carService";
+import MyAddedCarItem from "./_components/MyAddedCarItem";
 
 
 const MyAddedCarsPage = async () => {
@@ -10,28 +11,29 @@ const MyAddedCarsPage = async () => {
         headers: await headers()
     });
 
+    const token = await auth.api.getToken({
+        headers: await headers()
+    });
+
     const user = session?.user;
     console.log("add car user:", user);
 
-    const myCars = await carService.getMyCars(user?.id);
+    const myCars = await carService.getMyCars(user?.id, token);
     console.log(myCars);
     console.log('myCars:', myCars);
 
     return (
         <div className='app-container mt-20 '>
             My Added Cars Page:{myCars.length}
-            <div >
+            <div className="flex flex-col gap-5">
                 {
-                    myCars.map(car => <div
-                        className="border card-primary p-4 m-3"
-                        key={car._id}>
-                        <h1>{car.carName}</h1>
-                        <h1>{car.carType}</h1>
-                        <h1>{car.dailyRentPrice}</h1>
-                    </div>
+                    myCars.map(car => <MyAddedCarItem key={car._id}
+                        imageUrl={car.imageUrl}
+                        id={car._id}
+                    />
                     )
                 }
-            </div> 
+            </div>
         </div>
     );
 };

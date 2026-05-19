@@ -50,6 +50,16 @@
     @apply text-zinc-500 dark:text-zinc-400;
   }
 
+
+
+
+
+
+
+
+
+
+  
   /* Navbar */
   .navbar-bg {
     @apply bg-white dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-700;
