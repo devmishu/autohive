@@ -78,7 +78,7 @@ const CarForm = () => {
                 type="select"
 
                 placeholder="Select car type ">
-                <Label>Car Type</Label>
+                <Label>Driver Needed (Yes/No)</Label>
                 <Select.Trigger>
                     <Select.Value />
                     <Select.Indicator />
@@ -86,11 +86,11 @@ const CarForm = () => {
                 <Select.Popover>
                     <ListBox>
                         <ListBox.Item id="suv" textValue="SUV">
-                            SUV
+                            Yes
                             <ListBox.ItemIndicator />
                         </ListBox.Item>
                         <ListBox.Item id="sedan" textValue="Sedan">
-                            Sedan
+                            No
                             <ListBox.ItemIndicator />
                         </ListBox.Item>
                         <ListBox.Item id="hatchback" textValue="Hatchback">
@@ -135,12 +135,16 @@ const CarForm = () => {
                 <FieldError />
             </TextField>
 
-            <TextArea
-                name="description"
-                aria-label="Quick project update"
-                className="h-32 "
-                placeholder="Share a car description."
-            />
+            <TextField>
+                <Label>Description</Label>
+                <TextArea
+                    name="description"
+                    aria-label="Quick project update"
+                    className="h-32 "
+                    placeholder="Share a car description."
+                />
+            </TextField>
+
 
             <Select
                 name='availabilityStatus'
