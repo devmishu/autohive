@@ -13,7 +13,7 @@ const MyAddedCarsPage = async () => {
     const user = session?.user;
     console.log("add car user:", user);
 
-    const myCars = await carService.getMyCars(user.id);
+    const myCars = await carService.getMyCars(user?.id);
     console.log(myCars);
 
     return (
