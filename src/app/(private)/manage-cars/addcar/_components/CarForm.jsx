@@ -4,10 +4,12 @@ import { carService } from '@/services/carService';
 import { FieldError, Form, Input, Label, TextField, ListBox, Select, TextArea } from "@heroui/react";
 import React from 'react';
 import ActionButton from './ActionButton';
+import { useRouter } from 'next/navigation';
+import { revalidateAnyPath } from '@/actions/revalidate';
 
 const CarForm = () => {
+    const router = useRouter();
     const session = useSession();
-    console.log("Session:", session);
 
     const user = session?.data?.user;
     console.log("add car user:", user);
