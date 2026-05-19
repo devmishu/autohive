@@ -14,7 +14,7 @@ const CarForm = () => {
     const user = session?.data?.user;
     console.log("add car user:", user);
 
-    const addCar = async (e) => {
+    const handleAddCar = async (e) => {
         e.preventDefault();
         const form = e.target;
 
@@ -24,6 +24,7 @@ const CarForm = () => {
         const carData = Object.fromEntries(formData.entries());
 
         carData.userId = user?.id;
+        carData.bookingCount = 0;
 
         console.log("CarData:", carData);
 
@@ -44,9 +45,10 @@ const CarForm = () => {
         }
 
     };
+
     return (
         <Form
-            onSubmit={addCar}
+            onSubmit={handleAddCar}
             className="flex min-w-100  flex-col gap-4 "
             render={(props) => <form {...props} data-custom="foo" />}
 
@@ -78,7 +80,7 @@ const CarForm = () => {
                 type="select"
 
                 placeholder="Select car type ">
-                <Label>Driver Needed (Yes/No)</Label>
+                <Label>Car Type</Label>
                 <Select.Trigger>
                     <Select.Value />
                     <Select.Indicator />
@@ -86,11 +88,11 @@ const CarForm = () => {
                 <Select.Popover>
                     <ListBox>
                         <ListBox.Item id="suv" textValue="SUV">
-                            Yes
+                            SUV
                             <ListBox.ItemIndicator />
                         </ListBox.Item>
                         <ListBox.Item id="sedan" textValue="Sedan">
-                            No
+                            Sedan
                             <ListBox.ItemIndicator />
                         </ListBox.Item>
                         <ListBox.Item id="hatchback" textValue="Hatchback">

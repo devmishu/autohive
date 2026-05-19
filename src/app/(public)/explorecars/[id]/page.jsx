@@ -23,9 +23,10 @@ const CarDetailsPage = async ({ params }) => {
         <div className='app-container mt-20'>
             Car Details:
             <div className="app-container flex flex-col lg:flex-row gap-6">
-                <CarDetailItem />
 
-                <BookingFormItem />
+                <CarDetailItem  />
+
+                <BookingFormItem carDetail={carDetail}/>
             </div>
         </div>
     );
