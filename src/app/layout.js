@@ -1,17 +1,22 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Montserrat, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { } from "module";
 import { HeroThemeProviders } from "./providers/HeroThemeProviders";
 import Navbar from "@/components/shared/navbar/Navbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+
+
+export const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['400', '700', '800'], // আপনার প্রয়োজন অনুযায়ী ওয়েট নিতে পারেন
+  variable: '--font-montserrat', // Tailwind-এ ব্যবহারের জন্য ভ্যারিয়েবল নাম
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-jakarta', // Tailwind-এ ব্যবহারের জন্য ভ্যারিয়েবল নাম
 });
 
 export const metadata = {
@@ -25,10 +30,10 @@ export default function RootLayout({ children }) {
       lang="en"
       suppressHydrationWarning
       data-theme="light"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased `}
+      className={`h-full antialiased `}
     >
 
-      <body className="min-h-full flex flex-col">
+      <body className={`${plusJakartaSans.className}  min-h-full flex flex-col`} >
         <HeroThemeProviders>
           <Navbar />
           {children}
@@ -37,3 +42,5 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+//`

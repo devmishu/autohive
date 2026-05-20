@@ -1,18 +1,45 @@
 import { Card } from '@heroui/react';
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-// import car1 from '@/public/assets/images/car-1.jpg'
 
-const CarCard = ({ imageUrl, carName, id }) => {
+const CarCard = ({ imageUrl, carName, id, carType, dailyRentPrice, availabilityStatus }) => {
+
+    const blurDataURL = `${imageUrl}&q=10&blur=10&w=10`;
+
     return (
-        <Card  className='relative shadow card-primary p-0 rounded-none'>
-            <img src={imageUrl} alt={carName} className='w-full h-80' />
-            <h2 className='text-4xl font-bold'>{carName}</h2>
-            <p className='p-4 mb-10'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam me xcepturi inventore deserunt incidunt ducimus nemo odio molestiae, facilique est, repellendus quaerat sunt cupiditate nostrum vel pariatur iusto odit aspernatur itaque reiciendis quisquam non. Nihil maxime quae esse repellat!
-            </p>
-            <Link href={`/explorecars/${id}`} >
-                <button  className="absolute bottom-0  button-primary rounded-none w-full">
+        <Card className='relative shadow card-primary p-0 rounded-none h-full flex flex-col justify-between'>
+
+            <div className='mb-14'>
+
+                <div className='relative w-full h-64 md:h-72 bg-gray-900 overflow-hidden'>
+                    <Image
+                        src={imageUrl}
+                        alt={carName}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className='object-cover object-center' // ইমেজ ক্রপ করে সুন্দরভাবে ফিট করবে, স্ট্রেচ হবে না
+                        priority={true} // ইমেজ দ্রুত লোড করার জন্য
+                        placeholder="blur"
+                        blurDataURL={blurDataURL}
+                    />
+                </div>
+
+
+                <h2 className='text-primary text-xl md:text-2xl font-bold px-4 pt-4 pb-2 '>{carName}</h2>
+                <div className='flex justify-between items-center  px-4 pb-4'>
+                    <p className='text-primary text-sm md:text-base font-medium'>
+                        <span className='text-secondary '>Car Type: </span>{carType}
+                    </p>
+                    <p className='text-primary text-sm md:text-base font-medium'>
+                        <span className='text-secondary'>Daily Rent Price: </span>${dailyRentPrice}
+                    </p>
+                </div>
+            </div>
+
+
+            <Link href={`/explorecars/${id}`} className="w-full absolute bottom-0">
+                <button className="button-primary rounded-none w-full py-3 text-center font-semibold">
                     View Details
                 </button>
             </Link>
