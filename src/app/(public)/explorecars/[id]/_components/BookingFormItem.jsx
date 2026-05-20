@@ -61,18 +61,19 @@ export default function BookingFormItem({ carDetail }) {
     };
 
     return (
-        <div className=" space-y-4 w-full lg:w-1/3 card-primary p-6   h-fit ">
+        <div className=" space-y-4 w-full lg:w-1/3 card-primary rounded-none p-6   h-fit ">
             <h2 className="text-xl font-bold text-primary mb-4">Book This Car</h2>
 
             <form
                 onSubmit={handlaBookedCar}
+                className='space-y-4'
             >
                 <Select
                     name='availabilityStatus'
                     type="select"
 
-                    placeholder="Select Availability Status ">
-                    <Label>Driver Needed</Label>
+                    placeholder="Select Driver Option ">
+                    <Label>Need a Driver?</Label>
                     <Select.Trigger>
                         <Select.Value />
                         <Select.Indicator />
@@ -101,7 +102,7 @@ export default function BookingFormItem({ carDetail }) {
                         name="description"
                         aria-label="Quick project update"
                         className="h-32 w-full"
-                        placeholder="Share a car description."
+                        placeholder="Write any special note about the car..."
                     />
                 </TextField>
 
@@ -111,7 +112,7 @@ export default function BookingFormItem({ carDetail }) {
 
                 <Button
                     type='submit'
-                    className="w-full button-outline bg-transparent">
+                    className="mt-3 w-full button-outline bg-transparent">
                     Book Now
                 </Button>
             </form>

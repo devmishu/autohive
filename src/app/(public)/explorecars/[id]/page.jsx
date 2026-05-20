@@ -24,9 +24,19 @@ const CarDetailsPage = async ({ params }) => {
             Car Details:
             <div className="app-container flex flex-col lg:flex-row gap-6">
 
-                <CarDetailItem  />
+                <CarDetailItem 
+                imageUrl={carDetail.imageUrl}
+                carName={carDetail.carName}
+                carType={carDetail.carType}
+                seatCapacity={carDetail.seatCapacity}
+                description={carDetail.description}
+                availabilityStatus={carDetail.availabilityStatus}
+                bookingCount={carDetail.bookingCount}
+                dailyRentPrice={carDetail.dailyRentPrice}
+                pickupLocation={carDetail.pickupLocation}
+                />
 
-                <BookingFormItem carDetail={carDetail}/>
+                <BookingFormItem carDetail={carDetail} />
             </div>
         </div>
     );
