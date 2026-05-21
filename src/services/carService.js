@@ -89,7 +89,7 @@ export const carService = {
         try {
             const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/my-cars/${userId}`, {
                 headers: {
-                    authorization: `Bearer ${token.token}`
+                    authorization: `Bearer ${token?.token}`
                 }
             });
 
@@ -114,7 +114,7 @@ export const carService = {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/my-cars/${id}`, {
             method: 'DELETE',
             headers: {
-                authorization: `Bearer ${tokenData.token}`
+                authorization: `Bearer ${tokenData?.token}`
             },
         });
         const data = await res.json();
@@ -129,7 +129,7 @@ export const carService = {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
-                authorization: `Bearer ${tokenData.token}`
+                authorization: `Bearer ${tokenData?.token}`
             },
             body: JSON.stringify(updatedData)
         });

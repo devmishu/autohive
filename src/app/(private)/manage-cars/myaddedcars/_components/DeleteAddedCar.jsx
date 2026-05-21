@@ -4,6 +4,7 @@ import { AlertDialog, Button } from "@heroui/react";
 import { carService } from "@/services/carService";
 import { revalidateAnyPath } from "@/actions/revalidate";
 import toast from "react-hot-toast";
+import { authClient } from "@/lib/auth-client";
 
 
 const DeleteAddedCar = ({ id }) => {

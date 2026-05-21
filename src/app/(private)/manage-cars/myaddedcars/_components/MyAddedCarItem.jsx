@@ -1,6 +1,5 @@
 import React from 'react';
 import DeleteAddedCar from './DeleteAddedCar';
-import EditAddedCar from './EditAddedCar';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@heroui/react';

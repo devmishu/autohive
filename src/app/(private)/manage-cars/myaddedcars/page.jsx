@@ -24,7 +24,7 @@ const MyAddedCarsPage = async () => {
     console.log('myCars:', myCars);
 
     return (
-        <div className='app-container mt-20 '>
+        <div className='app-container mt-20 min-h-screen'>
             <div className='my-6 '>
                 <Title>  My Cars:{myCars.length} </Title>
             </div>

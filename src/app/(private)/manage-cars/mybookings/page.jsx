@@ -12,6 +12,8 @@ const MyBookingsPage = async () => {
 
     const myBookings = await bookingService.getAllBookingsCars(token);
 
+    console.log('my bookings', myBookings);
+
 
     return (
         <div className='app-container mx-auto mt-20 '>

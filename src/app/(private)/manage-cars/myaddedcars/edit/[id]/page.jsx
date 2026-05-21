@@ -5,9 +5,10 @@ import { carService } from "@/services/carService";
 import { revalidateAnyPath } from "@/actions/revalidate";
 import { Button, Input, Label, Surface, TextField, FieldError, ListBox, Select, TextArea } from "@heroui/react";
 import { authClient } from "@/lib/auth-client";
+import toast from "react-hot-toast";
 
 const EditCarPage = ({ params }) => {
-   
+
     const { id } = use(params);
     const router = useRouter();
 
@@ -19,15 +20,15 @@ const EditCarPage = ({ params }) => {
         const { data: tokenData } = await authClient.token()
 
         try {
-            const data = await carService.editMyCar(id, updatedData,tokenData);
-            alert(`${data.message}`);
+            const data = await carService.editMyCar(id, updatedData, tokenData);
+            toast.success(`${data.message}`);
 
-            
+
             revalidateAnyPath("/manage-cars/myaddedcars");
             router.push("/manage-cars/myaddedcars");
         } catch (error) {
             console.error(error);
-            alert(error.message || "Something went wrong!");
+            toast.error(`${data.message}`);
         }
     };
 
