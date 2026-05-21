@@ -1,5 +1,5 @@
 
-import Title from '@/components/shared/navbar/Title';
+import Title from '@/components/ui/Title';
 import CarForm from './_components/CarForm';
 
 const AddCarPage = () => {

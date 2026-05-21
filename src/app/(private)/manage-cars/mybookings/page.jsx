@@ -1,4 +1,4 @@
-import Title from '@/components/shared/navbar/Title';
+import Title from '@/components/ui/Title';
 import MyBookingCard from './_components/MyBookingCard';
 import { bookingService } from '@/services/bookingService';
 

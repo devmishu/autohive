@@ -1,5 +1,5 @@
 import CarCard from "@/components/cards/CarCard";
-import Title from "@/components/shared/navbar/Title";
+import Title from "@/components/ui/Title";
 import { carService } from "@/services/carService";
 
 const AavailableCars = async () => {
@@ -8,7 +8,7 @@ const AavailableCars = async () => {
     console.log("availableCars:......", availableCars);
     return (
         <div className='app-container mt-20 '>
-           <Title>Aavailable Cars</Title>
+            <Title>Aavailable Cars</Title>
 
             <div className='mt-10 grid gap-15 md:grid-cols-2 lg:grid-cols-3'>
                 {

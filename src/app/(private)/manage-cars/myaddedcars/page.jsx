@@ -3,7 +3,7 @@ import { headers } from "next/headers";
 import { auth } from '@/lib/auth';
 import { carService } from "@/services/carService";
 import MyAddedCarItem from "./_components/MyAddedCarItem";
-import Title from "@/components/shared/navbar/Title";
+import Title from "@/components/ui/Title";
 
 
 const MyAddedCarsPage = async () => {

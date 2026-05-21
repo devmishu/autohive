@@ -3,6 +3,7 @@ import "./globals.css";
 import { } from "module";
 import { HeroThemeProviders } from "./providers/HeroThemeProviders";
 import Navbar from "@/components/shared/navbar/Navbar";
+import Footer from "@/components/shared/Footer";
 
 
 
@@ -37,10 +38,10 @@ export default function RootLayout({ children }) {
         <HeroThemeProviders>
           <Navbar />
           {children}
+          <Footer />
         </HeroThemeProviders>
       </body>
     </html>
   );
 }
 
-//`

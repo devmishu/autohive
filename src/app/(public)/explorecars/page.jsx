@@ -3,7 +3,7 @@ import { carService } from '@/services/carService';
 import React from 'react';
 import SearchBar from './_components/SearchBar';
 import FilterBar from './_components/FilterBar';
-import Title from '@/components/shared/navbar/Title';
+import Title from '@/components/ui/Title';
 
 const ExploreCarsPage = async ({ searchParams }) => {
 
