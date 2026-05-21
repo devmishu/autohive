@@ -5,7 +5,7 @@ import { bookingService } from '@/services/bookingService';
 const MyBookingsPage = async () => {
 
     const myBookings = await bookingService.getAllBookingsCars();
-    console.log("myBookings::", myBookings);
+    console.log("myBookings::", myBookings); 
 
     return (
         <div className='app-container mx-auto mt-20 '>

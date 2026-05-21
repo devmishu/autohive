@@ -8,29 +8,28 @@ export function ThemeSwitch() {
     const { theme, setTheme } = useTheme();
 
     return (
-        <Switch onChange={() => setTheme(theme === "dark" ? "light" : "dark")}>
+        <Switch
+            isSelected={theme === "dark"}
+            onChange={() => setTheme(theme === "dark" ? "light" : "dark")}
+            classNames={{
+                // মেইন কম্পোনেন্টকে রাউন্ড করা
+                base: "rounded-full",
+                // সুইচের ভেতরের ট্র্যাক বা কন্ট্রোল এরিয়া
+                wrapper: `h-[31px] w-[51px] mr-0 rounded-full transition-colors duration-300 ${theme === "dark"
+                        ? "bg-zinc-800 border border-zinc-700 shadow-[0_0_12px_rgba(255,255,255,0.1)]"
+                        : "bg-zinc-200 border border-zinc-300"
+                    }`
+            }}
+        >
             {({ isSelected }) => (
-                <>
-                    <Switch.Control
-                        className={`h-[31px] w-[51px] bg-blue-500 ${isSelected ? "bg-cyan-500 shadow-[0_0_12px_rgba(6,182,212,0.5)]" : ""}`}
-                    >
-                        <Switch.Thumb
-                            className={`size-[27px] bg-white shadow-sm ${isSelected ? "ms-[22px] shadow-lg" : ""}`}
-                        >
-                            <Switch.Icon>
-                                {isSelected ? (
-                                    <Sun className="size-4 text-cyan-600" />
-                                ) : (
-                                    <Moon className="size-4 text-blue-600" />
-                                )}
-                            </Switch.Icon>
-                        </Switch.Thumb>
-                    </Switch.Control>
-                </>
+                <div className="size-[25px] bg-white rounded-full flex items-center justify-center shadow-sm">
+                    {isSelected ? (
+                        <Moon className="size-3.5 text-zinc-900" />
+                    ) : (
+                        <Sun className="size-3.5 text-amber-500" />
+                    )}
+                </div>
             )}
         </Switch>
-
-
-
     );
 }

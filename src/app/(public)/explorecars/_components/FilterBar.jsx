@@ -29,26 +29,36 @@ const FilterBar = ({ sp }) => {
     };
 
     return (
-        <div className="flex flex-col gap-2">
-            <label htmlFor="carType" className="text-sm font-medium text-gray-700">
-                Filter by car type
+        <div className="w-full max-w-md flex flex-col gap-1.5">
+            {/* Label */}
+            <label htmlFor="carType" className="text-xs font-semibold text-primary">
+                Filter by Car Type
             </label>
-            <select
-                id="carType"
-                name="carType"
-                value={filter}
-                onChange={handleFilterChange}
-                className="w-[280px] p-2 border border-gray-300 rounded-lg shadow-sm text-sm outline-none bg-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-            >
-                <option value="">Select car type</option>
-                <option value="suv">suv</option>
-                <option value="sedan">sedan</option>
-                <option value="hatchback">hatchback</option>
-                <option value="luxury">luxury</option>
-                <option value="sports">sports</option>
-                <option value="electric">electric</option>
-                <option value="offroad">offroad</option>
-            </select>
+
+            {/* Select Wrapper */}
+            <div className="relative w-full">
+                <select
+                    id="carType"
+                    name="carType"
+                    value={filter}
+                    onChange={handleFilterChange}
+                    className="input-primary w-full pr-10 text-sm appearance-none cursor-pointer"
+                >
+                    <option value="" className="bg-white dark:bg-zinc-900 text-primary">All Categories</option>
+                    <option value="suv" className="bg-white dark:bg-zinc-900 text-primary">SUV</option>
+                    <option value="sedan" className="bg-white dark:bg-zinc-900 text-primary">Sedan</option>
+                    <option value="hatchback" className="bg-white dark:bg-zinc-900 text-primary">Hatchback</option>
+                    <option value="luxury" className="bg-white dark:bg-zinc-900 text-primary">Luxury</option>
+                    <option value="sports" className="bg-white dark:bg-zinc-900 text-primary">Sports</option>
+                    <option value="electric" className="bg-white dark:bg-zinc-900 text-primary">Electric</option>
+                    <option value="offroad" className="bg-white dark:bg-zinc-900 text-primary">Offroad</option>
+                </select>
+
+                {/* Custom Premium Dropdown Arrow Icon */}
+                <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-secondary text-xs">
+                    ▼
+                </div>
+            </div>
         </div>
     );
 };

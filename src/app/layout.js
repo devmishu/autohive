@@ -4,6 +4,7 @@ import { } from "module";
 import { HeroThemeProviders } from "./providers/HeroThemeProviders";
 import Navbar from "@/components/shared/navbar/Navbar";
 import Footer from "@/components/shared/Footer";
+import { Toaster } from "react-hot-toast";
 
 
 
@@ -39,6 +40,7 @@ export default function RootLayout({ children }) {
           <Navbar />
           {children}
           <Footer />
+          <Toaster />
         </HeroThemeProviders>
       </body>
     </html>

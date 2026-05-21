@@ -6,6 +6,7 @@ import React from 'react';
 import ActionButton from './ActionButton';
 import { useRouter } from 'next/navigation';
 import { revalidateAnyPath } from '@/actions/revalidate';
+import toast from 'react-hot-toast';
 
 const CarForm = () => {
     const router = useRouter();
@@ -21,7 +22,6 @@ const CarForm = () => {
 
         const formData = new FormData(e.target);
 
-        // Convert FormData to a readable object
         const carData = Object.fromEntries(formData.entries());
 
         carData.userId = user?.id;
@@ -34,15 +34,14 @@ const CarForm = () => {
             const data = await carService.addCar(carData);
 
             console.log(data);
-            alert(`${data.message}`);
             form.reset();
 
-            revalidateAnyPath("explorecars");
+            toast.success(`${data.message}`);
+            revalidateAnyPath("/explorecars");
             router.push('/explorecars');
 
         } catch (error) {
-            console.log(error);
-            alert(error.message);
+            toast.error(error.message);
         }
 
     };

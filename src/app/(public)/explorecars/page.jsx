@@ -15,7 +15,7 @@ const ExploreCarsPage = async ({ searchParams }) => {
     return (
         <div className='app-container mt-20 '>
 
-            <div className='my-10 grid grid-cols-2 gap-5 '>
+            <div className='my-10 grid grid-cols-1 md:grid-cols-2 gap-4 items-center'>
                 <FilterBar />
                 <SearchBar />
             </div>
