@@ -109,9 +109,13 @@ export const carService = {
         }
     },
 
-    deleteMyCar: async (id) => {
+
+    deleteMyCar: async (id, tokenData) => {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/my-cars/${id}`, {
             method: 'DELETE',
+            headers: {
+                authorization: `Bearer ${tokenData.token}`
+            },
         });
         const data = await res.json();
         if (!res.ok) {
@@ -120,11 +124,12 @@ export const carService = {
         return data;
     },
 
-    editMyCar: async (id, updatedData) => {
+    editMyCar: async (id, updatedData, tokenData) => {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cars/${id}`, {
             method: 'PATCH',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${tokenData.token}`
             },
             body: JSON.stringify(updatedData)
         });

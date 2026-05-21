@@ -22,7 +22,7 @@ const CarForm = () => {
         e.preventDefault();
         const form = e.target;
 
-        const { data: tokenData } = await authClient.token()
+        const { data: tokenData } = await authClient.token();
 
         const formData = new FormData(e.target);
 

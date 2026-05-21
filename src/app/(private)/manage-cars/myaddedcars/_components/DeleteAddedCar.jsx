@@ -10,8 +10,10 @@ const DeleteAddedCar = ({ id }) => {
 
     const handleDeleteMyCar = async () => {
 
+        const { data: tokenData } = await authClient.token();
+
         try {
-            const data = await carService.deleteMyCar(id);
+            const data = await carService.deleteMyCar(id,tokenData);
 
             toast.success(`${data.message}`);
             revalidateAnyPath("/manage-cars/myaddedcars");

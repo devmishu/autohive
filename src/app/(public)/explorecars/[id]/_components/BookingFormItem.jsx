@@ -1,6 +1,6 @@
 "use client"
 import { revalidateAnyPath } from '@/actions/revalidate';
-import { useSession } from '@/lib/auth-client';
+import { authClient, useSession } from '@/lib/auth-client';
 import { bookingService } from '@/services/bookingService';
 import { Button, Label, ListBox, Select, TextArea, TextField } from '@heroui/react';
 import { useRouter } from 'next/navigation';
@@ -42,10 +42,11 @@ export default function BookingFormItem({ carDetail }) {
             carId
         };
 
+        const { data: tokenData } = await authClient.token()
 
         try {
 
-            const data = await bookingService.cretaeBooking(bookedData);
+            const data = await bookingService.cretaeBooking(bookedData, tokenData);
 
             console.log(data);
 

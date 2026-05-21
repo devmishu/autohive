@@ -1,11 +1,12 @@
 
 export const bookingService = {
 
-    cretaeBooking: async (bookedData) => {
+    cretaeBooking: async (bookedData, tokenData) => {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/bookings`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${token?.token}` 
             },
             body: JSON.stringify(bookedData)
         });

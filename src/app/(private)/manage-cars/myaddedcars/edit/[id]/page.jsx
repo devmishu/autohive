@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { carService } from "@/services/carService";
 import { revalidateAnyPath } from "@/actions/revalidate";
 import { Button, Input, Label, Surface, TextField, FieldError, ListBox, Select, TextArea } from "@heroui/react";
+import { authClient } from "@/lib/auth-client";
 
 const EditCarPage = ({ params }) => {
    
@@ -15,8 +16,10 @@ const EditCarPage = ({ params }) => {
         const formData = new FormData(e.target);
         const updatedData = Object.fromEntries(formData.entries());
 
+        const { data: tokenData } = await authClient.token()
+
         try {
-            const data = await carService.editMyCar(id, updatedData);
+            const data = await carService.editMyCar(id, updatedData,tokenData);
             alert(`${data.message}`);
 
             
