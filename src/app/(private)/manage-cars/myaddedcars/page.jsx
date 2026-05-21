@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { auth } from '@/lib/auth';
 import { carService } from "@/services/carService";
 import MyAddedCarItem from "./_components/MyAddedCarItem";
+import Title from "@/components/shared/navbar/Title";
 
 
 const MyAddedCarsPage = async () => {
@@ -24,13 +25,22 @@ const MyAddedCarsPage = async () => {
 
     return (
         <div className='app-container mt-20 '>
-            My Added Cars Page:{myCars.length}
+            <div className='my-6 '>
+                <Title>  My Cars:{myCars.length} </Title>
+            </div>
+
             <div className="flex flex-col gap-5">
                 {
                     myCars.map(car => <MyAddedCarItem key={car._id}
                         imageUrl={car.imageUrl}
                         id={car._id}
                         carName={car.carName}
+                        carType={car.carType}
+                        seatCapacity={car.seatCapacity}
+                        description={car.description}
+                        availabilityStatus={car.availabilityStatus}
+                        dailyRentPrice={car.dailyRentPrice}
+                        pickupLocation={car.pickupLocation}
                     />
                     )
                 }
@@ -40,3 +50,5 @@ const MyAddedCarsPage = async () => {
 };
 
 export default MyAddedCarsPage;
+
+//  id, imageUrl, carName, carType, seatCapacity, description, availabilityStatus, , dailyRentPrice, pickupLocation 

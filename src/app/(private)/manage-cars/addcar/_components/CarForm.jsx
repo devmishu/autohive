@@ -50,7 +50,7 @@ const CarForm = () => {
     return (
         <Form
             onSubmit={handleAddCar}
-            className="flex min-w-100  flex-col gap-4 "
+            className="w-full max-w-xl mx-auto flex flex-col gap-5 md:p-6  "
             render={(props) => <form {...props} data-custom="foo" />}
 
         >
@@ -87,7 +87,7 @@ const CarForm = () => {
                     <Select.Indicator />
                 </Select.Trigger>
                 <Select.Popover>
-                    <ListBox> 
+                    <ListBox>
                         <ListBox.Item id="suv" textValue="suv">
                             suv
                             <ListBox.ItemIndicator />

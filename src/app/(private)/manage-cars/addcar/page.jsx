@@ -1,4 +1,5 @@
 
+import Title from '@/components/shared/navbar/Title';
 import CarForm from './_components/CarForm';
 
 const AddCarPage = () => {
@@ -7,9 +8,12 @@ const AddCarPage = () => {
 
     return (
         <div className='app-container mt-20'>
-            Add Car :
 
-            <div className='card-primary p-10 max-w-[600px] mx-auto'>
+            <div className='my-6 '>
+                <Title> Add Your Cars: </Title>
+            </div>
+
+            <div className='card-primary p-5 max-w-150 mx-auto'>
                 <CarForm />
             </div>
 

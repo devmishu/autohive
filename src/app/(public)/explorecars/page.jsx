@@ -3,6 +3,7 @@ import { carService } from '@/services/carService';
 import React from 'react';
 import SearchBar from './_components/SearchBar';
 import FilterBar from './_components/FilterBar';
+import Title from '@/components/shared/navbar/Title';
 
 const ExploreCarsPage = async ({ searchParams }) => {
 
@@ -13,11 +14,14 @@ const ExploreCarsPage = async ({ searchParams }) => {
 
     return (
         <div className='app-container mt-20 '>
-            Explorecars Page: {allCars.length}
+
             <div className='my-10 grid grid-cols-2 gap-5 '>
                 <FilterBar />
                 <SearchBar />
             </div>
+
+            <Title> All Cars: {allCars.length}</Title>
+
             <div className='mt-10 grid gap-15 md:grid-cols-2 lg:grid-cols-3'>
                 {
                     allCars?.map(car => <CarCard

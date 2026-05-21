@@ -18,15 +18,15 @@ const CarCard = ({ imageUrl, carName, id, carType, dailyRentPrice, availabilityS
                         alt={carName}
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className='object-cover object-center' // ইমেজ ক্রপ করে সুন্দরভাবে ফিট করবে, স্ট্রেচ হবে না
-                        priority={true} // ইমেজ দ্রুত লোড করার জন্য
+                        className='object-cover object-center' 
+                        priority={true} 
                         placeholder="blur"
                         blurDataURL={blurDataURL}
                     />
                 </div>
 
 
-                <h2 className='text-primary text-xl md:text-2xl font-bold px-4 pt-4 pb-2 '>{carName}</h2>
+                <h2 className='text-primary text-xl md:text-2xl font-bold px-4 pt-4 pb-2 '>{carName}</h2> 
                 <div className='flex justify-between items-center  px-4 pb-4'>
                     <p className='text-primary text-sm md:text-base font-medium'>
                         <span className='text-secondary '>Car Type: </span>{carType}

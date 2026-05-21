@@ -38,7 +38,7 @@ const EditAddedCar = ({ id,imageUrl }) => {
                 <Button className="button-outline bg-transparent">Edit</Button>
                 <Modal.Backdrop>
                     <Modal.Container placement="auto">
-                        <Modal.Dialog className="sm:max-w-md   card-primary">
+                        <Modal.Dialog className="sm:max-w-md   card-primary rounded-none">
                             <Modal.CloseTrigger />
                             <Modal.Header>
                                 {/* <Modal.Icon className="bg-accent-soft text-accent-soft-foreground">
