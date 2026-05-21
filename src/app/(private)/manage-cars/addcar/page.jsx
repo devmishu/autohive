@@ -14,7 +14,7 @@ const AddCarPage = () => {
             </div>
 
             <div className='card-primary p-5 max-w-150 mx-auto'>
-                <CarForm />
+                <CarForm /> 
             </div>
 
         </div>

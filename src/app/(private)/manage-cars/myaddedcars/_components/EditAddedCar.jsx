@@ -3,7 +3,7 @@ import { revalidateAnyPath } from "@/actions/revalidate";
 import { carService } from "@/services/carService";
 import { Button, Input, Label, Modal, Surface, TextField, FieldError, ListBox, Select, TextArea } from "@heroui/react";
 
-const EditAddedCar = ({ id,imageUrl }) => {
+const EditAddedCar = ({ id, imageUrl }) => {
 
     const handleEditMyCar = async (e) => {
         e.preventDefault();
@@ -38,23 +38,24 @@ const EditAddedCar = ({ id,imageUrl }) => {
                 <Button className="button-outline bg-transparent">Edit</Button>
                 <Modal.Backdrop>
                     <Modal.Container placement="auto">
-                        <Modal.Dialog className="sm:max-w-md   card-primary rounded-none">
+                        {/* ১. এখানে max-h-[85vh] এবং flex-col দেওয়া হয়েছে যেন হেডার ও ফুটার চেপে না যায় */}
+                        <Modal.Dialog className="sm:max-w-md w-full max-h-[85vh] flex flex-col card-primary rounded-none">
                             <Modal.CloseTrigger />
-                            <Modal.Header>
-                                {/* <Modal.Icon className="bg-accent-soft text-accent-soft-foreground">
-                                    <Envelope className="size-5" />
-                                </Modal.Icon> */}
+
+                            <Modal.Header className="flex-shrink-0">
                                 <Modal.Heading>Edit Your Car</Modal.Heading>
                                 <p className="mt-1.5 text-sm leading-5 text-muted">
                                     Fill out the form below and we'll get back to you. The modal adapts automatically
                                     when the keyboard appears on mobile.
                                 </p>
                             </Modal.Header>
-                            <Modal.Body className="p-6  card-primary border-none overflow-hidden rounded ">
-                                <Surface className="overflow-hidden  rounded border-6" >
+
+                            {/* ২. শুধুমাত্র বডি অংশটুকু স্ক্রোল হবে (overflow-y-auto), flex-1 এর কারণে এটি বাকি জায়গা নিবে */}
+                            <Modal.Body className="p-6 card-primary border-none overflow-y-auto flex-1">
+                                <Surface className="rounded border-6" >
                                     <form
                                         onSubmit={handleEditMyCar}
-                                        className="flex flex-col gap-4 card-primary border-none overflow-hidden">
+                                        className="flex flex-col gap-4 card-primary border-none">
                                         <TextField className="w-full" name="dailyRentPrice" type="number">
                                             <Label>Daily Rent Price</Label>
                                             <Input placeholder="Enter your name" />
@@ -68,7 +69,6 @@ const EditAddedCar = ({ id,imageUrl }) => {
                                         <Select
                                             name='availabilityStatus'
                                             type="select"
-
                                             placeholder="Select Availability Status ">
                                             <Label>Availability Status</Label>
                                             <Select.Trigger>
@@ -85,7 +85,6 @@ const EditAddedCar = ({ id,imageUrl }) => {
                                                         Unavailable
                                                         <ListBox.ItemIndicator />
                                                     </ListBox.Item>
-
                                                 </ListBox>
                                             </Select.Popover>
                                         </Select>
@@ -104,7 +103,6 @@ const EditAddedCar = ({ id,imageUrl }) => {
                                         <Select
                                             name='carType'
                                             type="select"
-
                                             placeholder="Select car type ">
                                             <Label>Car Type</Label>
                                             <Select.Trigger>
@@ -113,22 +111,10 @@ const EditAddedCar = ({ id,imageUrl }) => {
                                             </Select.Trigger>
                                             <Select.Popover>
                                                 <ListBox>
-                                                    <ListBox.Item id="suv" textValue="SUV">
-                                                        SUV
-                                                        <ListBox.ItemIndicator />
-                                                    </ListBox.Item>
-                                                    <ListBox.Item id="sedan" textValue="Sedan">
-                                                        Sedan
-                                                        <ListBox.ItemIndicator />
-                                                    </ListBox.Item>
-                                                    <ListBox.Item id="hatchback" textValue="Hatchback">
-                                                        Hatchback
-                                                        <ListBox.ItemIndicator />
-                                                    </ListBox.Item>
-                                                    <ListBox.Item id="luxury" textValue="Luxury">
-                                                        Luxury
-                                                        <ListBox.ItemIndicator />
-                                                    </ListBox.Item>
+                                                    <ListBox.Item id="suv" textValue="SUV">SUV<ListBox.ItemIndicator /></ListBox.Item>
+                                                    <ListBox.Item id="sedan" textValue="Sedan">Sedan<ListBox.ItemIndicator /></ListBox.Item>
+                                                    <ListBox.Item id="hatchback" textValue="Hatchback">Hatchback<ListBox.ItemIndicator /></ListBox.Item>
+                                                    <ListBox.Item id="luxury" textValue="Luxury">Luxury<ListBox.ItemIndicator /></ListBox.Item>
                                                 </ListBox>
                                             </Select.Popover>
                                         </Select>
@@ -142,20 +128,15 @@ const EditAddedCar = ({ id,imageUrl }) => {
                                             <Input placeholder="Pickup Location" />
                                             <FieldError />
                                         </TextField>
-
-                                        <Modal.Footer >
-
-                                            <Button slot="close" className="button-outline bg-transparent"> Cancel</Button>
-
-                                            <Button
-                                                type="submit"
-                                                slot="close" className="button-primary">Update Car</Button>
-                                        </Modal.Footer>
-
                                     </form>
                                 </Surface>
                             </Modal.Body>
 
+                            {/* ৩. ফুটারকে ফর্মের বাইরে এবং flex-shrink-0 তে রাখা হয়েছে যেন এটি নিচে সুন্দরভাবে ফিক্সড থাকে */}
+                            <Modal.Footer className="flex-shrink-0">
+                                <Button slot="close" className="button-outline bg-transparent"> Cancel</Button>
+                                <Button type="submit" onClick={handleEditMyCar} className="button-primary">Update Car</Button>
+                            </Modal.Footer>
 
                         </Modal.Dialog>
                     </Modal.Container>
@@ -165,4 +146,8 @@ const EditAddedCar = ({ id,imageUrl }) => {
     );
 };
 
+
 export default EditAddedCar;
+
+
+

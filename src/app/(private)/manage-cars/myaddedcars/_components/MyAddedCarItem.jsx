@@ -2,6 +2,8 @@ import React from 'react';
 import DeleteAddedCar from './DeleteAddedCar';
 import EditAddedCar from './EditAddedCar';
 import Image from 'next/image';
+import Link from 'next/link';
+import { Button } from '@heroui/react';
 
 const MyAddedCarItem = ({ id, imageUrl, carName, carType, seatCapacity, description, availabilityStatus, bookingCount, dailyRentPrice, pickupLocation }) => {
 
@@ -77,6 +79,13 @@ const MyAddedCarItem = ({ id, imageUrl, carName, carType, seatCapacity, descript
 
                     <div className="flex gap-2">
                         <EditAddedCar id={id} imageUrl={imageUrl} />
+
+                        <Link href={`/manage-cars/myaddedcars/edit/${id}`}>
+                            <Button className="button-outline text-black bg-transparent">
+                                Edit
+                            </Button> 
+                        </Link>
+
                         <DeleteAddedCar id={id} />
                     </div>
                 </div>
@@ -85,4 +94,4 @@ const MyAddedCarItem = ({ id, imageUrl, carName, carType, seatCapacity, descript
     );
 }
 
-export default MyAddedCarItem
+export default MyAddedCarItem 

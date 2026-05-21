@@ -41,7 +41,7 @@ const MyAddedCarsPage = async () => {
                         availabilityStatus={car.availabilityStatus}
                         dailyRentPrice={car.dailyRentPrice}
                         pickupLocation={car.pickupLocation}
-                    />
+                    /> 
                     )
                 }
             </div>
