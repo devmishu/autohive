@@ -5,10 +5,10 @@ import React, { useState, useEffect } from 'react';
 const FilterBar = ({ sp }) => {
     const router = useRouter();
 
-    // সার্ভার থেকে আসা sp.carType অনুযায়ী স্টেট ইনিশিয়ালাইজ হবে
+    
     const [filter, setFilter] = useState(sp?.carType || "");
 
-    // URL পরিবর্তন হলে স্টেটের ভ্যালুও যাতে সিঙ্ক থাকে
+   
     useEffect(() => {
         setFilter(sp?.carType || "");
     }, [sp?.carType]);
@@ -30,12 +30,12 @@ const FilterBar = ({ sp }) => {
 
     return (
         <div className="w-full max-w-md flex flex-col gap-1.5">
-            {/* Label */}
+            
             <label htmlFor="carType" className="text-xs font-semibold text-primary">
                 Filter by Car Type
             </label>
 
-            {/* Select Wrapper */}
+            
             <div className="relative w-full">
                 <select
                     id="carType"
@@ -54,7 +54,7 @@ const FilterBar = ({ sp }) => {
                     <option value="offroad" className="bg-white dark:bg-zinc-900 text-primary">Offroad</option>
                 </select>
 
-                {/* Custom Premium Dropdown Arrow Icon */}
+                
                 <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-secondary text-xs">
                     ▼
                 </div>

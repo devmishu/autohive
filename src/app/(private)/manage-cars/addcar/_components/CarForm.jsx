@@ -1,5 +1,5 @@
 "use client"
-import { useSession } from '@/lib/auth-client';
+import { authClient, useSession } from '@/lib/auth-client';
 import { carService } from '@/services/carService';
 import { FieldError, Form, Input, Label, TextField, ListBox, Select, TextArea } from "@heroui/react";
 import React from 'react';
@@ -15,10 +15,14 @@ const CarForm = () => {
     const user = session?.data?.user;
     console.log("add car user:", user);
 
+
+
+
     const handleAddCar = async (e) => {
         e.preventDefault();
         const form = e.target;
 
+        const { data: tokenData } = await authClient.token()
 
         const formData = new FormData(e.target);
 
@@ -31,7 +35,7 @@ const CarForm = () => {
 
         try {
 
-            const data = await carService.addCar(carData);
+            const data = await carService.addCar(carData, tokenData);
 
             console.log(data);
             form.reset();

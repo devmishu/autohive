@@ -18,7 +18,7 @@ const CarDetailsPage = async ({ params }) => {
 
     console.log("jwtToken:", token.token);
 
-    console.log("carDetail:", carDetail);
+    console.log("carDetail:", carDetail); 
     return (
         <div className='app-container mt-20'>
             Car Details:

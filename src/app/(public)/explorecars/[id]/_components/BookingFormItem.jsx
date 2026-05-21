@@ -3,15 +3,16 @@ import { revalidateAnyPath } from '@/actions/revalidate';
 import { useSession } from '@/lib/auth-client';
 import { bookingService } from '@/services/bookingService';
 import { Button, Label, ListBox, Select, TextArea, TextField } from '@heroui/react';
-// import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import React from 'react';
+import toast from 'react-hot-toast';
 
 export default function BookingFormItem({ carDetail }) {
     const { carName, carType, availabilityStatus, dailyRentPrice, description,
         imageUrl, pickupLocation, seatCapacity, userId, bookingCount,
         _id: carId } = carDetail;
 
-    // const router = useRouter();
+    const router = useRouter();
     const session = useSession();
 
     const user = session?.data?.user;
@@ -47,15 +48,17 @@ export default function BookingFormItem({ carDetail }) {
             const data = await bookingService.cretaeBooking(bookedData);
 
             console.log(data);
-            alert(`${data.message}`);
-            form.reset();
 
-            revalidateAnyPath("/explorecars");
-            // router.push('/explorecars');
+            form.reset();
+            toast.success(`${data.message}`);
+
+            revalidateAnyPath("/manage-cars/mybookings");
+            router.push('/manage-cars/mybookings');
 
         } catch (error) {
             console.log(error);
             alert(error.message);
+            toast.error(error.message);
         }
 
     };
@@ -106,9 +109,6 @@ export default function BookingFormItem({ carDetail }) {
                     />
                 </TextField>
 
-                {/* <button className="w-full bg-emerald-800 hover:bg-emerald-900 text-white font-semibold py-3 rounded-xl flex items-center justify-center space-x-2 transition-all cursor-pointer mb-3">
-                <span>📅</span> <span>Book Now</span>
-            </button> */}
 
                 <Button
                     type='submit'
@@ -117,7 +117,7 @@ export default function BookingFormItem({ carDetail }) {
                 </Button>
             </form>
 
-            {/* Security Info */}
+
             <p className="text-center text-[11px] text-secondary">
                 ✓ Secure Booking. No Hidden Charges.
             </p>

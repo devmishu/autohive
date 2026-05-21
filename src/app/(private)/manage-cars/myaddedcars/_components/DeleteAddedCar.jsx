@@ -3,6 +3,7 @@
 import { AlertDialog, Button } from "@heroui/react";
 import { carService } from "@/services/carService";
 import { revalidateAnyPath } from "@/actions/revalidate";
+import toast from "react-hot-toast";
 
 
 const DeleteAddedCar = ({ id }) => {
@@ -12,19 +13,18 @@ const DeleteAddedCar = ({ id }) => {
         try {
             const data = await carService.deleteMyCar(id);
 
-            alert(`${data.message}`);
-
+            toast.success(`${data.message}`);
             revalidateAnyPath("/manage-cars/myaddedcars");
 
         } catch (error) {
-            console.log(error);
-            alert(error.message);
+
+            toast.error(`${error.message}`);
         }
     }
     return (
 
         <AlertDialog>
-            <Button variant="danger" className="button-primary">Delete Project</Button>
+            <Button variant="danger" className="button-primary">Delete </Button>
             <AlertDialog.Backdrop>
                 <AlertDialog.Container>
                     <AlertDialog.Dialog className="sm:max-w-[400px]">
@@ -46,7 +46,7 @@ const DeleteAddedCar = ({ id }) => {
                             <Button
                                 onClick={handleDeleteMyCar}
                                 slot="close" className="button-primary">
-                                Conferm Delete Car
+                                Confirm Delete
                             </Button>
                         </AlertDialog.Footer>
                     </AlertDialog.Dialog>

@@ -12,22 +12,29 @@ const CarCard = ({ imageUrl, carName, id, carType, dailyRentPrice, availabilityS
 
             <div className='mb-14'>
 
+                
                 <div className='relative w-full h-64 md:h-72 bg-gray-900 overflow-hidden'>
                     <Image
                         src={imageUrl}
                         alt={carName}
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className='object-cover object-center' 
-                        priority={true} 
+                        className='object-cover object-center'
+                        priority={true}
                         placeholder="blur"
                         blurDataURL={blurDataURL}
                     />
+
+                    
+                    <div className={`absolute top-4 left-4 z-10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white shadow-md
+                ${availabilityStatus === 'available' ? 'bg-green-600' : 'bg-red-600'}`}
+                    >
+                        {availabilityStatus }
+                    </div>
                 </div>
 
-
-                <h2 className='text-primary text-xl md:text-2xl font-bold px-4 pt-4 pb-2 '>{carName}</h2> 
-                <div className='flex justify-between items-center  px-4 pb-4'>
+                <h2 className='text-primary text-xl md:text-2xl font-bold px-4 pt-4 pb-2 '>{carName}</h2>
+                <div className='flex justify-between items-center px-4 pb-4'>
                     <p className='text-primary text-sm md:text-base font-medium'>
                         <span className='text-secondary '>Car Type: </span>{carType}
                     </p>
@@ -36,7 +43,6 @@ const CarCard = ({ imageUrl, carName, id, carType, dailyRentPrice, availabilityS
                     </p>
                 </div>
             </div>
-
 
             <Link href={`/explorecars/${id}`} className="w-full absolute bottom-0">
                 <button className="button-primary rounded-none w-full py-3 text-center font-semibold">

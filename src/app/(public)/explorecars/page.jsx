@@ -20,7 +20,7 @@ const ExploreCarsPage = async ({ searchParams }) => {
                 <SearchBar />
             </div>
 
-            <Title> All Cars: {allCars.length}</Title>
+            <Title> All Cars</Title>
 
             <div className='mt-10 grid gap-15 md:grid-cols-2 lg:grid-cols-3'>
                 {

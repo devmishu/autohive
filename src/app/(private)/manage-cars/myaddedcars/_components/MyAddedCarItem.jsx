@@ -4,6 +4,8 @@ import EditAddedCar from './EditAddedCar';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@heroui/react';
+import { FaCar } from "react-icons/fa";
+import { IoLocationSharp } from "react-icons/io5";
 
 const MyAddedCarItem = ({ id, imageUrl, carName, carType, seatCapacity, description, availabilityStatus, bookingCount, dailyRentPrice, pickupLocation }) => {
 
@@ -44,18 +46,11 @@ const MyAddedCarItem = ({ id, imageUrl, carName, carType, seatCapacity, descript
 
 
                         <div className="grid grid-cols-2 gap-y-2 gap-x-4 my-4 text-sm text-primary">
+
                             <div className="flex items-center space-x-2">
-                                <span>⛽</span> <span>Petrol</span>
+                                <span>Seat Capacity:</span> <span>{seatCapacity} Seats</span>
                             </div>
-                            <div className="flex items-center space-x-2">
-                                <span>👤</span> <span>{seatCapacity} Seats</span>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                                <span>⚙️</span> <span>Automatic</span>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                                <span>⏱️</span> <span>28 KM/L</span>
-                            </div>
+
                         </div>
 
 
@@ -66,24 +61,34 @@ const MyAddedCarItem = ({ id, imageUrl, carName, carType, seatCapacity, descript
 
                         <div className="space-y-1.5 text-xs text-secondary font-medium mb-6">
                             <div className="flex items-center space-x-2">
-                                <span>🏷️</span> <span>Category: {carType}</span>
+
                             </div>
-                            <div className="flex items-center space-x-2">
-                                <span>🪪</span> <span>License: ABC-1234</span>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                                <span>📍</span> <span>Location: {pickupLocation}</span>
-                            </div>
+                            <ul className="space-y-2.5 text-sm text-zinc-600 dark:text-zinc-400">
+                                <li className="flex items-center gap-2">
+                                    
+                                    <FaCar className="text-base text-zinc-500 dark:text-zinc-500 flex-shrink-0" />
+                                    <span className="leading-none">
+                                        Category: <strong className="font-medium text-zinc-800 dark:text-zinc-200">{carType}</strong>
+                                    </span>
+                                </li>
+                                <li className="flex items-center gap-2">
+                                    
+                                    <IoLocationSharp className="text-base text-zinc-500 dark:text-zinc-500 flex-shrink-0" />
+                                    <span className="leading-none">
+                                        Location: <strong className="font-medium text-zinc-800 dark:text-zinc-200">{pickupLocation}</strong>
+                                    </span>
+                                </li>
+                            </ul>
+
                         </div>
                     </div>
 
                     <div className="flex gap-2">
-                        <EditAddedCar id={id} imageUrl={imageUrl} />
 
                         <Link href={`/manage-cars/myaddedcars/edit/${id}`}>
-                            <Button className="button-outline text-black bg-transparent">
+                            <Button className="button-outline text-black bg-transparent dark:text-white">
                                 Edit
-                            </Button> 
+                            </Button>
                         </Link>
 
                         <DeleteAddedCar id={id} />

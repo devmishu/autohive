@@ -1,11 +1,12 @@
 
 export const carService = {
 
-    addCar: async (carData) => {
+    addCar: async (carData, tokenData) => {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cars`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${tokenData?.token}`
             },
             body: JSON.stringify(carData)
         });
@@ -64,7 +65,7 @@ export const carService = {
         try {
             const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cars/${id}`, {
                 headers: {
-                    authorization: `Bearer ${token.token}`
+                    authorization: `Bearer ${token?.token}`
                 }
             });
 

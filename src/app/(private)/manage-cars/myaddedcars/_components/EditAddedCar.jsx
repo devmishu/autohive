@@ -2,6 +2,7 @@
 import { revalidateAnyPath } from "@/actions/revalidate";
 import { carService } from "@/services/carService";
 import { Button, Input, Label, Modal, Surface, TextField, FieldError, ListBox, Select, TextArea } from "@heroui/react";
+import toast from "react-hot-toast";
 
 const EditAddedCar = ({ id, imageUrl }) => {
 
@@ -20,14 +21,16 @@ const EditAddedCar = ({ id, imageUrl }) => {
             const data = await carService.editMyCar(id, updatedData);
 
             console.log(data);
-            alert(`${data.message}`);
+
             form.reset();
 
+            toast.success(`${data.message}`);
             revalidateAnyPath("/manage-cars/myaddedcars");
 
         } catch (error) {
             console.log(error);
             alert(error.message);
+            toast.error(error.message);
         }
     }
 
@@ -38,7 +41,7 @@ const EditAddedCar = ({ id, imageUrl }) => {
                 <Button className="button-outline bg-transparent">Edit</Button>
                 <Modal.Backdrop>
                     <Modal.Container placement="auto">
-                        {/* ১. এখানে max-h-[85vh] এবং flex-col দেওয়া হয়েছে যেন হেডার ও ফুটার চেপে না যায় */}
+
                         <Modal.Dialog className="sm:max-w-md w-full max-h-[85vh] flex flex-col card-primary rounded-none">
                             <Modal.CloseTrigger />
 
@@ -50,7 +53,7 @@ const EditAddedCar = ({ id, imageUrl }) => {
                                 </p>
                             </Modal.Header>
 
-                            {/* ২. শুধুমাত্র বডি অংশটুকু স্ক্রোল হবে (overflow-y-auto), flex-1 এর কারণে এটি বাকি জায়গা নিবে */}
+
                             <Modal.Body className="p-6 card-primary border-none overflow-y-auto flex-1">
                                 <Surface className="rounded border-6" >
                                     <form
@@ -132,7 +135,7 @@ const EditAddedCar = ({ id, imageUrl }) => {
                                 </Surface>
                             </Modal.Body>
 
-                            {/* ৩. ফুটারকে ফর্মের বাইরে এবং flex-shrink-0 তে রাখা হয়েছে যেন এটি নিচে সুন্দরভাবে ফিক্সড থাকে */}
+
                             <Modal.Footer className="flex-shrink-0">
                                 <Button slot="close" className="button-outline bg-transparent"> Cancel</Button>
                                 <Button type="submit" onClick={handleEditMyCar} className="button-primary">Update Car</Button>

@@ -1,6 +1,4 @@
-// app/manage-cars/edit-[id]/page.jsx
 "use client";
-
 import React, { use } from "react";
 import { useRouter } from "next/navigation";
 import { carService } from "@/services/carService";
@@ -8,7 +6,7 @@ import { revalidateAnyPath } from "@/actions/revalidate";
 import { Button, Input, Label, Surface, TextField, FieldError, ListBox, Select, TextArea } from "@heroui/react";
 
 const EditCarPage = ({ params }) => {
-    // URL থেকে আইডি পাওয়ার জন্য Next.js-এর use() হুক ব্যবহার করা হয়েছে
+   
     const { id } = use(params);
     const router = useRouter();
 
@@ -21,7 +19,7 @@ const EditCarPage = ({ params }) => {
             const data = await carService.editMyCar(id, updatedData);
             alert(`${data.message}`);
 
-            // ডাটা আপডেট শেষে আগের পেজে ব্যাক করবে এবং রিভ্যালিডেট করবে
+            
             revalidateAnyPath("/manage-cars/myaddedcars");
             router.push("/manage-cars/myaddedcars");
         } catch (error) {

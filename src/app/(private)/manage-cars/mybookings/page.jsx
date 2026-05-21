@@ -1,11 +1,17 @@
 import Title from '@/components/ui/Title';
 import MyBookingCard from './_components/MyBookingCard';
 import { bookingService } from '@/services/bookingService';
+import { headers } from 'next/headers';
+import { auth } from '@/lib/auth';
 
 const MyBookingsPage = async () => {
 
-    const myBookings = await bookingService.getAllBookingsCars();
-    console.log("myBookings::", myBookings); 
+    const token = await auth.api.getToken({
+        headers: await headers()
+    });
+
+    const myBookings = await bookingService.getAllBookingsCars(token);
+
 
     return (
         <div className='app-container mx-auto mt-20 '>

@@ -12,12 +12,12 @@ export function ThemeSwitch() {
             isSelected={theme === "dark"}
             onChange={() => setTheme(theme === "dark" ? "light" : "dark")}
             classNames={{
-                // মেইন কম্পোনেন্টকে রাউন্ড করা
+
                 base: "rounded-full",
-                // সুইচের ভেতরের ট্র্যাক বা কন্ট্রোল এরিয়া
+
                 wrapper: `h-[31px] w-[51px] mr-0 rounded-full transition-colors duration-300 ${theme === "dark"
-                        ? "bg-zinc-800 border border-zinc-700 shadow-[0_0_12px_rgba(255,255,255,0.1)]"
-                        : "bg-zinc-200 border border-zinc-300"
+                    ? "bg-zinc-800 border border-zinc-700 shadow-[0_0_12px_rgba(255,255,255,0.1)]"
+                    : "bg-zinc-200 border border-zinc-300"
                     }`
             }}
         >

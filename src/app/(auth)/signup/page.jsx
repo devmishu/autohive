@@ -19,7 +19,7 @@ const SingupPage = () => {
 
         const formData = new FormData(e.target);
 
-        // Convert FormData to a readable object
+        
         const signupData = Object.fromEntries(formData.entries());
 
         console.log(signupData);
@@ -57,10 +57,10 @@ const SingupPage = () => {
     return (
         <div className="app-container min-h-[85vh] mt-24 flex justify-center items-center">
 
-            {/* Split Layout Container */}
+            
             <div className="card-primary flex flex-col md:flex-row items-stretch w-full md:max-w-4xl  overflow-hidden shadow-xl">
 
-                {/* LEFT SIDE: Brand/Info Card (Visible on MD & LG devices) */}
+                
                 <div className="hidden md:flex md:w-1/2 bg-zinc-100 dark:bg-zinc-900/50 p-10 flex-col justify-between border-r border-zinc-200 dark:border-zinc-700">
                     <div className="space-y-4">
                         <div className="flex items-center space-x-2 text-2xl font-bold tracking-wide">
@@ -77,7 +77,7 @@ const SingupPage = () => {
                     <div>
                         hello
                     </div>
-                    {/* Quick Feature List */}
+                    
                     <div className="space-y-3 text-sm text-secondary">
                         <div className="flex items-center space-x-2">
                             <span className="text-emerald-500">✓</span>
@@ -94,10 +94,10 @@ const SingupPage = () => {
                     </div>
                 </div>
 
-                {/* RIGHT SIDE: Form Section (Full width on Mobile, 50% on Desktop) */}
+                
                 <div className="w-full md:w-1/2 p-6 sm:p-10 flex flex-col justify-center">
 
-                    {/* Header for Form */}
+                    
                     <div className="mb-6">
                         <h3 className="text-xl font-bold text-primary mb-1">Create Account</h3>
                         <p className="text-secondary text-xs">Please fill in the details to sign up</p>
@@ -107,21 +107,21 @@ const SingupPage = () => {
                         className="flex flex-col gap-4 w-full"
                         onSubmit={handleSignup}
                     >
-                        {/* Name Field */}
+                       
                         <TextField isRequired name="name" type="text" className="flex flex-col gap-1">
                             <Label className="text-xs font-semibold text-primary">Name</Label>
                             <Input placeholder="Mishu Debnath" className="input-primary w-full text-sm" />
                             <FieldError className="text-xs text-red-500 mt-1" />
                         </TextField>
 
-                        {/* Image URL Field */}
+                       
                         <TextField isRequired name="userImage" type="url" className="flex flex-col gap-1">
                             <Label className="text-xs font-semibold text-primary">Image URL</Label>
                             <Input placeholder="https://example.com/profile.jpg" className="input-primary w-full text-sm" />
                             <FieldError className="text-xs text-red-500 mt-1" />
                         </TextField>
 
-                        {/* Email Field */}
+                        
                         <TextField
                             isRequired
                             name="email"
@@ -139,7 +139,7 @@ const SingupPage = () => {
                             <FieldError className="text-xs text-red-500 mt-1" />
                         </TextField>
 
-                        {/* Password Field */}
+                       
                         <TextField
                             isRequired
                             minLength={8}
@@ -161,7 +161,7 @@ const SingupPage = () => {
                             <FieldError className="text-xs text-red-500 mt-1" />
                         </TextField>
 
-                        {/* Action Buttons */}
+                        
                         <div className="flex gap-3 mt-2">
                             <button type="submit" className="button-primary flex-1 justify-center py-2.5 text-sm font-medium">
                                 Sign Up
@@ -172,14 +172,14 @@ const SingupPage = () => {
                         </div>
                     </Form>
 
-                    {/* Divider */}
+                   
                     <div className="relative flex py-4 items-center">
                         <div className="flex-grow border-t border-zinc-200 dark:border-zinc-700"></div>
                         <span className="flex-shrink mx-4 text-secondary text-xs">Or continue with</span>
                         <div className="flex-grow border-t border-zinc-200 dark:border-zinc-700"></div>
                     </div>
 
-                    {/* Social Google Login Button */}
+                    
                     <Button
                         onClick={signIn}
                         className="w-full dark:bg-black " variant="tertiary">
@@ -188,7 +188,7 @@ const SingupPage = () => {
                         Sign in with Google
                     </Button>
 
-                    {/* Already have an account */}
+                    
                     <p className="text-secondary text-xs text-center mt-6 ">
                         Already have an account?{" "}
                         <Link href="/login" className="text-red-600 dark:text-red-500 font-semibold hover:underline">

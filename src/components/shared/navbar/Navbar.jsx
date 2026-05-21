@@ -3,15 +3,17 @@
 import { signOut, useSession } from "@/lib/auth-client";
 import { ThemeSwitch } from "@/theme/ThemeSwitch";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import { Button, Dropdown, Header, Label } from "@heroui/react";
 import { redirect } from 'next/navigation';
 import { Avatar } from "@heroui/react";
 
+
 const Navbar = () => {
     const [open, setOpen] = useState(false);
+    const router = useRouter();
 
 
     const pathname = usePathname();
@@ -31,7 +33,9 @@ const Navbar = () => {
 
     const handleSingout = () => {
         signOut();
+        router.refresh();
         redirect("/");
+
 
     }
 

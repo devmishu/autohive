@@ -51,4 +51,3 @@ const MyAddedCarsPage = async () => {
 
 export default MyAddedCarsPage;
 
-//  id, imageUrl, carName, carType, seatCapacity, description, availabilityStatus, , dailyRentPrice, pickupLocation 

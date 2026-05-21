@@ -17,9 +17,13 @@ export const bookingService = {
         return data;
     },
 
-    getAllBookingsCars: async () => {
+    getAllBookingsCars: async (token) => {
         try {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/bookings`);
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/bookings`, {
+                headers: {
+                    authorization: `Bearer ${token?.token}`
+                }
+            });
 
             const data = await res.json();
 
