@@ -27,7 +27,7 @@ const MyAddedCarsPage = async () => {
     return (
         <div className='app-container mt-20 min-h-screen'>
             <div className='my-6 '>
-                <Title>  My Cars:{myCars.length} </Title>
+                <Title>  My Cars</Title>
             </div>
 
             <div className="grid gap-15">
