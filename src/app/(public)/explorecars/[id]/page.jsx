@@ -5,6 +5,7 @@ import { headers } from 'next/headers';
 import React from 'react';
 import CarDetailItem from './_components/CarDetailItem';
 import BookingFormItem from './_components/BookingFormItem';
+import Title from '@/components/ui/Title';
 
 const CarDetailsPage = async ({ params }) => {
     const { id } = await params;
@@ -21,7 +22,9 @@ const CarDetailsPage = async ({ params }) => {
     console.log("carDetail:", carDetail); 
     return (
         <div className='app-container mt-20'>
-            Car Details:
+            
+            <Title>Car Details</Title>
+
             <div className="app-container flex flex-col lg:flex-row gap-6">
 
                 <CarDetailItem 

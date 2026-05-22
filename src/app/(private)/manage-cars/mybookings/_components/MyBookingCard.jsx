@@ -109,4 +109,4 @@ const MyBookingCard = ({ carName, imageUrl, carType, bookingDte, pickupLocation,
     );
 }
 
-export default MyBookingCard
+export default MyBookingCard 

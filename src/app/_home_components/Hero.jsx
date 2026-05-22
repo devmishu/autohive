@@ -2,7 +2,7 @@ import { montserrat } from '@/app/layout.js';
 
 export default function Hero() {
     return (
-        <div className="min-h-screen flex flex-col justify-center px-6 md:px-16 bg-cover bg-center bg-[linear-gradient(to_right,rgba(0,0,0,0.95)_30%,rgba(0,0,0,0.3)_100%),url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?')]">
+        <div className="min-h-screen flex flex-col justify-center px-6 md:px-16 bg-cover bg-center bg-[linear-gradient(to_right,rgba(0,0,0,0.95)_30%,rgba(0,0,0,0.3)_100%),url('/assets/images/herobg.jpg')]">
             {/* Top Navbar */}
 
 

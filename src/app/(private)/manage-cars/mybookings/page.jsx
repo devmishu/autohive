@@ -3,6 +3,7 @@ import MyBookingCard from './_components/MyBookingCard';
 import { bookingService } from '@/services/bookingService';
 import { headers } from 'next/headers';
 import { auth } from '@/lib/auth';
+import EmptyStateCard from '@/components/shared/EmptyStateCard';
 
 const MyBookingsPage = async () => {
 
@@ -16,32 +17,39 @@ const MyBookingsPage = async () => {
 
     const userId = session?.user?.id;
 
-    console.log("booking...........",userId); 
+    console.log("booking...........", userId);
 
-    const myBookings = await bookingService.getAllBookingsCars(userId,token);
+    const myBookings = await bookingService.getAllBookingsCars(userId, token);
 
     console.log('my bookings', myBookings);
 
 
     return (
-        <div className='app-container mx-auto mt-20 '>
+        <div className='min-h-[50vh] app-container mx-auto mt-20 '>
             <div className='my-6 '>
-                <Title>  My Bookings:{myBookings.length} </Title>
+                <Title>  My Bookings </Title>
             </div>
-            <div className='grid gap-5 '>
+            <div className='grid gap-15  '>
                 {
-                    myBookings.map(boking => <MyBookingCard
-                        key={boking._id}
-                        carName={boking.carName}
-                        imageUrl={boking.imageUrl}
-                        carType={boking.carType}
-                        bookingDte={boking.bookingDte}
-                        pickupLocation={boking.pickupLocation}
-                        seatCapacity={boking.seatCapacity}
+                    myBookings?.length === 0 ? <EmptyStateCard 
+                    title="No Bookings Found"
+                     message="You haven't made any bookings yet. Browse cars to get started!"
+                     buttonText="Book a Car"
+                     href="/explorecars"
+                    /> :
+                        myBookings.map(boking => <MyBookingCard
+                            key={boking._id}
+                            carName={boking.carName}
+                            imageUrl={boking.imageUrl}
+                            carType={boking.carType}
+                            bookingDte={boking.bookingDte}
+                            pickupLocation={boking.pickupLocation}
+                            seatCapacity={boking.seatCapacity}
 
-                    />
-                    )
+                        />
+                        )
                 }
+
             </div>
 
         </div>
