@@ -114,7 +114,7 @@ const MyBookingCard = ({ carName, imageUrl, carType, bookingDte, pickupLocation,
                 <div className="text-center w-full mb-5">
                     <p className="text-secondary text-xs font-medium mb-0.5">Total Price</p> 
                     <p className="text-2xl font-bold text-secondary">${dailyRentPrice}</p>
-                    <p className="text-secondary text-xs">(3 Days)</p>
+                   
                 </div>
 
 

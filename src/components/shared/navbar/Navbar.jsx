@@ -34,9 +34,7 @@ const Navbar = () => {
     const handleSingout = () => {
         signOut();
         router.refresh();
-        redirect("/");
-
-
+        redirect("/"); 
     }
 
     return (

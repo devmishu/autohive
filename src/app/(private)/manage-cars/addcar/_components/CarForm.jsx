@@ -72,10 +72,10 @@ const CarForm = () => {
             <TextField
                 isRequired
                 name="dailyRentPrice"
-                type="number"
+
             >
                 <Label>Daily Rent Price</Label>
-                <Input placeholder="Daily Rent Price" className="rounded-none" />
+                <Input placeholder="Daily Rent Price" />
                 <FieldError />
             </TextField>
 
@@ -133,7 +133,7 @@ const CarForm = () => {
                 type="url"
             >
                 <Label>Image URL</Label>
-                <Input placeholder="Image url" className="rounded-none" />
+                <Input placeholder="Image url" />
                 <FieldError />
             </TextField>
 
