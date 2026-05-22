@@ -1,4 +1,4 @@
-# 🚗 DriveFleet - Car Rental Platform
+# 🚗 Auto Hive - Car Rental Platform
 
 A modern and responsive full-stack car rental platform where users can explore available cars, view detailed car information, book vehicles, manage bookings, and add their own car listings securely.
 
@@ -12,7 +12,7 @@ A modern and responsive full-stack car rental platform where users can explore a
 
 # 🔗 Live URL
 
-[DriveFleet Live Website](https://autohive-sepia.vercel.app)
+[Auto Hive Live Website](https://autohive-sepia.vercel.app)
 
 ---
 
