@@ -10,7 +10,15 @@ const MyBookingsPage = async () => {
         headers: await headers()
     });
 
-    const myBookings = await bookingService.getAllBookingsCars(token);
+    const session = await auth.api.getSession({
+        headers: await headers()
+    })
+
+    const userId = session?.user?.id;
+
+    console.log("booking...........",userId); 
+
+    const myBookings = await bookingService.getAllBookingsCars(userId,token);
 
     console.log('my bookings', myBookings);
 

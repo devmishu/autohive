@@ -6,7 +6,7 @@ export const bookingService = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                authorization: `Bearer ${tokenData?.token}` 
+                authorization: `Bearer ${tokenData?.token}`
             },
             body: JSON.stringify(bookedData)
         });
@@ -18,9 +18,9 @@ export const bookingService = {
         return data;
     },
 
-    getAllBookingsCars: async (token) => {
+    getAllBookingsCars: async (userId, token) => {
         try {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/bookings`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/bookings/${userId}`, {
                 headers: {
                     authorization: `Bearer ${token?.token}`
                 }

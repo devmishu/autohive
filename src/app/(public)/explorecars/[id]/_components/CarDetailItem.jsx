@@ -22,7 +22,7 @@ export default function CarDetailItem({ imageUrl, carName, carType, seatCapacity
                     <span
                         className={` py-2 rounded-full text-sm md:text-base font-semibold text-primary`}
                     >
-                        {availabilityStatus}
+                        {availabilityStatus} 
                     </span>
                 </div>
 
