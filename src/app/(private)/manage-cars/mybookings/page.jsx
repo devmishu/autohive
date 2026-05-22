@@ -21,7 +21,7 @@ const MyBookingsPage = async () => {
 
     const myBookings = await bookingService.getAllBookingsCars(userId, token);
 
-    console.log('my bookings', myBookings);
+    console.log('my bookings.........', myBookings);
 
 
     return (
@@ -31,11 +31,11 @@ const MyBookingsPage = async () => {
             </div>
             <div className='grid gap-15  '>
                 {
-                    myBookings?.length === 0 ? <EmptyStateCard 
-                    title="No Bookings Found"
-                     message="You haven't made any bookings yet. Browse cars to get started!"
-                     buttonText="Book a Car"
-                     href="/explorecars"
+                    myBookings?.length === 0 ? <EmptyStateCard
+                        title="No Bookings Found"
+                        message="You haven't made any bookings yet. Browse cars to get started!"
+                        buttonText="Book a Car"
+                        href="/explorecars"
                     /> :
                         myBookings.map(boking => <MyBookingCard
                             key={boking._id}
@@ -45,6 +45,8 @@ const MyBookingsPage = async () => {
                             bookingDte={boking.bookingDte}
                             pickupLocation={boking.pickupLocation}
                             seatCapacity={boking.seatCapacity}
+                            dailyRentPrice={boking.dailyRentPrice}
+                            description={boking.description}
 
                         />
                         )
@@ -57,3 +59,6 @@ const MyBookingsPage = async () => {
 };
 
 export default MyBookingsPage;
+
+
+

@@ -1,9 +1,11 @@
 import Image from 'next/image';
 import React from 'react';
+import { FaCar, FaCarAlt } from 'react-icons/fa';
+import { PiSeatFill } from 'react-icons/pi';
 
 export default function CarDetailItem({ imageUrl, carName, carType, seatCapacity, description, availabilityStatus, bookingCount, dailyRentPrice, pickupLocation }) {
     return (
-        <div className="w-full lg:w-2/3 card-primary rounded-none ">
+        <div className=" w-full lg:w-2/3 card-primary rounded-none ">
 
 
 
@@ -20,7 +22,7 @@ export default function CarDetailItem({ imageUrl, carName, carType, seatCapacity
 
 
 
-            <div className='p-6'>
+            <div className='p-6 space-y-3'>
 
                 <h1 className="text-2xl md:text-3xl font-bold text-primary mb-3 ">{carName}</h1>
 
@@ -41,10 +43,24 @@ export default function CarDetailItem({ imageUrl, carName, carType, seatCapacity
 
                 <p className='text pt-1 pb-2 text-secondary'>{bookingCount} happy customers booked this car</p>
 
-                <div className="flex flex-wrap gap-4 text-sm text-secondary mb-6 border-b border-zinc-200 dark:border-zinc-700 pb-4">
-                    <span>🚙 {carType}</span>
-                    <span>👤 {seatCapacity} Seats</span>
-                </div>
+
+
+                <ul className="space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
+                    <li className="flex items-center gap-2">
+
+                        <FaCar className="text-base text-zinc-500 dark:text-zinc-500 flex-shrink-0" />
+                        <span className="leading-none">
+                            Category: <strong className="font-medium text-zinc-800 dark:text-zinc-200">{carType}</strong>
+                        </span>
+                    </li>
+                    <li className="flex items-center gap-2">
+
+                        <PiSeatFill className="text-base text-zinc-500 dark:text-zinc-500 flex-shrink-0" />
+                        <span className="leading-none">
+                            Seat Capacity: <strong className="font-medium text-zinc-800 dark:text-zinc-200">{seatCapacity} Seats</strong>
+                        </span>
+                    </li>
+                </ul>
 
 
                 <p className="text-secondary text-sm leading-relaxed mb-6">

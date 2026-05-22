@@ -1,7 +1,13 @@
 import Image from 'next/image';
 import React from 'react';
+import { FaCar, FaCheckSquare } from 'react-icons/fa';
+import { FaLocationDot } from 'react-icons/fa6';
+import { IoIosCheckmark } from 'react-icons/io';
+import { PiSeatFill } from 'react-icons/pi';
+import { SlCalender } from 'react-icons/sl';
+import { TbFileDescriptionFilled } from 'react-icons/tb';
 
-const MyBookingCard = ({ carName, imageUrl, carType, bookingDte, pickupLocation, seatCapacity }) => {
+const MyBookingCard = ({ carName, imageUrl, carType, bookingDte, pickupLocation, seatCapacity, dailyRentPrice, description }) => {
     return (
         <div className="card-primary  flex flex-col md:flex-row items-stretch gap-0 w-full md:max-w-5xl mx-auto overflow-hidden shadow-sm">
 
@@ -33,7 +39,9 @@ const MyBookingCard = ({ carName, imageUrl, carType, bookingDte, pickupLocation,
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6 text-sm">
 
                     <div className="flex items-start space-x-2.5">
-                        <span className="text-lg mt-0.5">📅</span>
+                        <div className='text-lg mt-2'>
+                            <SlCalender /> 
+                        </div>
                         <div>
                             <p className="text-secondary text-xs font-medium">Booking Date</p>
                             <p className="text-primary font-semibold">{bookingDte}</p>
@@ -42,7 +50,9 @@ const MyBookingCard = ({ carName, imageUrl, carType, bookingDte, pickupLocation,
 
 
                     <div className="flex items-start space-x-2.5">
-                        <span className="text-lg mt-0.5">🚗</span>
+                        <div className='text-lg mt-2'>
+                            <FaCar />
+                        </div>
                         <div>
                             <p className="text-secondary text-xs font-medium">Car Type</p>
                             <p className="text-primary font-semibold">{carType}</p>
@@ -51,7 +61,10 @@ const MyBookingCard = ({ carName, imageUrl, carType, bookingDte, pickupLocation,
 
 
                     <div className="flex items-start space-x-2.5">
-                        <span className="text-lg mt-0.5">📍</span>
+                     
+                         <div className='text-lg mt-2'>
+                           <FaLocationDot />
+                        </div>
                         <div>
                             <p className="text-secondary text-xs font-medium">Pickup Location</p>
                             <p className="text-primary font-semibold">{pickupLocation}</p>
@@ -60,7 +73,10 @@ const MyBookingCard = ({ carName, imageUrl, carType, bookingDte, pickupLocation,
 
                     {/* Availability */}
                     <div className="flex items-start space-x-2.5">
-                        <span className="text-lg mt-0.5">✅</span>
+
+                        <div className='text-lg mt-2'>
+                            <FaCheckSquare />
+                        </div>
                         <div>
                             <p className="text-secondary text-xs font-medium">Availability</p>
                             <p className="text-primary font-semibold">Driver Included</p>
@@ -69,7 +85,10 @@ const MyBookingCard = ({ carName, imageUrl, carType, bookingDte, pickupLocation,
 
 
                     <div className="flex items-start space-x-2.5">
-                        <span className="text-lg mt-0.5">👥</span>
+                        <div className='text-lg mt-2'>
+                           <PiSeatFill />
+                        </div>
+                        
                         <div>
                             <p className="text-secondary text-xs font-medium">Seat Capacity</p>
                             <p className="text-primary font-semibold">{seatCapacity} Seats</p>
@@ -78,10 +97,12 @@ const MyBookingCard = ({ carName, imageUrl, carType, bookingDte, pickupLocation,
 
 
                     <div className="flex items-start space-x-2.5">
-                        <span className="text-lg mt-0.5">#</span>
+                       <div className='text-lg mt-2'>
+                            <TbFileDescriptionFilled />
+                        </div>
                         <div>
-                            <p className="text-secondary text-xs font-medium">Booking ID</p>
-                            <p className="text-primary font-semibold tracking-wider">BK-682415</p>
+                            <p className="text-secondary text-xs font-medium">Description</p>
+                            <p className="text-primary font-semibold tracking-wider">{description}</p>
                         </div>
                     </div>
                 </div>
@@ -91,15 +112,15 @@ const MyBookingCard = ({ carName, imageUrl, carType, bookingDte, pickupLocation,
             <div className="w-full md:w-1/4 flex flex-col justify-center items-center border-t md:border-t-0 md:border-l border-zinc-200 dark:border-zinc-700 p-6 shrink-0 self-stretch bg-zinc-50/50 dark:bg-zinc-800/30">
 
                 <div className="text-center w-full mb-5">
-                    <p className="text-secondary text-xs font-medium mb-0.5">Total Price</p>
-                    <p className="text-2xl font-bold text-secondary">$240.00</p>
+                    <p className="text-secondary text-xs font-medium mb-0.5">Price</p>
+                    <p className="text-2xl font-bold text-secondary">${dailyRentPrice}</p>
                     <p className="text-secondary text-xs">(3 Days)</p>
                 </div>
 
 
                 <div className="w-full max-w-45">
                     <div className="bg-emerald-50 dark:bg-emerald-950/30 text-secondary  border border-emerald-100 dark:border-emerald-900/40 text-xs font-semibold py-2 px-4  flex items-center justify-center space-x-1.5 w-full">
-                        <span>✓</span>
+                        <IoIosCheckmark size='20'/>
                         <span>Confirmed</span>
                     </div>
                 </div>
