@@ -23,7 +23,7 @@ export default function NotFound() {
                     Oops! The page you are looking for doesn't exist or has been moved. Let's get you back on track.
                 </p>
 
-                {/* Action Buttons */}
+                
                 <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
                     <Link href="/" className="button-primary w-full sm:w-auto inline-flex items-center justify-center space-x-2 font-medium">
                         {/* <span>🚗</span> */}

@@ -112,7 +112,7 @@ const MyBookingCard = ({ carName, imageUrl, carType, bookingDte, pickupLocation,
             <div className="w-full md:w-1/4 flex flex-col justify-center items-center border-t md:border-t-0 md:border-l border-zinc-200 dark:border-zinc-700 p-6 shrink-0 self-stretch bg-zinc-50/50 dark:bg-zinc-800/30">
 
                 <div className="text-center w-full mb-5">
-                    <p className="text-secondary text-xs font-medium mb-0.5">Price</p>
+                    <p className="text-secondary text-xs font-medium mb-0.5">Total Price</p> 
                     <p className="text-2xl font-bold text-secondary">${dailyRentPrice}</p>
                     <p className="text-secondary text-xs">(3 Days)</p>
                 </div>

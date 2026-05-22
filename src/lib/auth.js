@@ -23,6 +23,7 @@ export const auth = betterAuth({
     // email password
     emailAndPassword: {
         enabled: true,
+        autoSignIn: false,
     },
 
     // social login

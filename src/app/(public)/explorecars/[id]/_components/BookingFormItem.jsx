@@ -113,7 +113,7 @@ export default function BookingFormItem({ carDetail }) {
 
                 <Button
                     type='submit'
-                    className="mt-3 w-full button-outline bg-transparent">
+                    className="mt-3 w-full button-primary ">
                     Book Now
                 </Button>
             </form>

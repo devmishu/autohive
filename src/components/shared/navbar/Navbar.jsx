@@ -40,17 +40,19 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="sticky  top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md  dark:bg-zinc-950/70  text-primary">
+        <nav className=" top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md  dark:bg-zinc-950/70  text-primary">
 
             <div className="flex items-center justify-between px-6 lg:px-10 py-4">
 
-                {/* Logo */}
-                <div className="flex items-center space-x-2 text-2xl font-bold tracking-wide">
-                    <span className="text-red-500 border-2 border-red-500 px-1 rounded font-black">C</span>
-                    <span className="text-red-500 font-bold">Auto Hive</span>
-                </div>
 
-                {/* Desktop Menu */}
+                <Link href={`/`}>
+                    <div className="flex items-center space-x-2 text-2xl font-bold ">
+                        <span className="text-red-500 border-2 border-red-500 px-1 rounded font-black">A</span>
+                        <span className="text-red-500 font-bold">Auto Hive</span>
+                    </div>
+                </Link>
+
+
                 <div className="hidden lg:flex space-x-6 text-sm font-medium">
                     <div className="flex items-center space-x-8">
                         {navLinks.map(link => {
@@ -59,7 +61,7 @@ const Navbar = () => {
                                 <Link
                                     key={link.id}
                                     href={link.href}
-                                    className={`text-sm font-medium transition-colors ${isActive
+                                    className={`text-sm font-bold  transition-colors ${isActive
                                         ? "text-red-500 font-bold"
                                         : "text-zinc-600 dark:text-zinc-300 hover:text-red-500 dark:hover:text-red-500"
                                         }`}
@@ -73,7 +75,7 @@ const Navbar = () => {
 
                 <div className="flex items-center space-x-4">
 
-                   
+
                     <div className="hidden lg:flex items-center space-x-4 text-sm">
                         {user ? (
 
@@ -97,7 +99,7 @@ const Navbar = () => {
                                     <span className="text-[10px] text-white">▼</span>
                                 </Button>
 
-                                <Dropdown.Popover className="min-w-[200px] bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xl rounded-xl">
+                                <Dropdown.Popover className="min-w-50 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xl rounded-xl">
                                     <Dropdown.Menu className="text-zinc-800 dark:text-zinc-200">
                                         <Dropdown.Section>
                                             <Header className="text-zinc-400 dark:text-zinc-500 font-bold text-xs px-2 py-1 uppercase tracking-wider">User Dashboard</Header>
@@ -124,7 +126,7 @@ const Navbar = () => {
                                         <Dropdown.Item
                                             id="logout"
                                             textValue="Log Out"
-                                            className="text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg"
+                                            className="text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded"
                                         >
                                             <div onClick={handleSingout} className="w-full h-full py-1">
                                                 <Label className="cursor-pointer font-semibold">Log Out</Label>
@@ -138,12 +140,12 @@ const Navbar = () => {
                             <>
 
                                 <Link href={'/signup'}>
-                                    <button className="px-5 py-2 rounded-xl font-medium text-sm border border-zinc-200 dark:border-zinc-800 text-zinc-800 dark:text-zinc-200 bg-white/80 dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-300 shadow-sm">
+                                    <button className="cursor-pointer px-5 py-2 rounded font-medium text-sm border border-zinc-200 dark:border-zinc-800 text-zinc-800 dark:text-zinc-200 bg-white/80 dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-300 shadow-sm">
                                         Sign Up
                                     </button>
                                 </Link>
                                 <Link href={'/login'}>
-                                    <button className="px-5 py-2 rounded-xl font-medium text-sm bg-red-500 hover:bg-red-600 text-white transition-all duration-300 shadow-sm">
+                                    <button className="cursor-pointer px-5 py-2 rounded font-medium text-sm bg-red-500 hover:bg-red-600 text-white transition-all duration-300 shadow-sm">
                                         Log In
                                     </button>
                                 </Link>
@@ -174,18 +176,20 @@ const Navbar = () => {
             >
                 <div>
                     <div className="flex flex-col space-y-5">
-                        <div className="flex gap-3 items-center">
-                            <Avatar>
-                                <Avatar.Image alt={user?.name} src={user?.image} />
-                                <Avatar.Fallback className="text-2xl font-bold uppercase">
-                                    {user?.name[0]}
-                                </Avatar.Fallback>
+                        {
+                            user && <div className="flex gap-3 items-center">
+                                <Avatar>
+                                    <Avatar.Image alt={user?.name} src={user?.image} />
+                                    <Avatar.Fallback className="text-2xl font-bold uppercase">
+                                        {user?.name[0]}
+                                    </Avatar.Fallback>
 
-                            </Avatar>
-                            <span className="text-primary capitalize">
+                                </Avatar>
+                                <span className="dark:text-white text-black font-bold capitalize">
 
-                                {user?.name}</span>
-                        </div>
+                                    {user?.name}</span>
+                            </div>
+                        }
 
                         {navLinks.map(link => {
                             const isActive = pathname === link.href;
@@ -227,19 +231,19 @@ const Navbar = () => {
                                 handleSingout();
                                 handleCloseMenu();
                             }}
-                            className="w-full py-2.5 rounded-xl font-medium text-sm bg-red-500 hover:bg-red-600 text-white transition-all duration-300"
+                            className="cursor-pointer w-full py-2.5 rounded font-medium text-sm bg-red-500 hover:bg-red-600 text-white transition-all duration-300"
                         >
                             Log Out
                         </button>
                     ) : (
                         <>
                             <Link href={'/signup'} onClick={handleCloseMenu} className="w-full">
-                                <button className="w-full py-2.5 rounded-xl font-medium text-sm border border-zinc-200 dark:border-zinc-800 text-zinc-800 dark:text-zinc-200 bg-white dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-300">
+                                <button className="cursor-pointer w-full py-2.5 rounded font-medium text-sm border border-zinc-200 dark:border-zinc-800 text-zinc-800 dark:text-zinc-200 bg-white dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-300">
                                     Sign Up
                                 </button>
                             </Link>
                             <Link href={'/login'} onClick={handleCloseMenu} className="w-full">
-                                <button className="w-full py-2.5 rounded-xl font-medium text-sm bg-red-500 hover:bg-red-600 text-white transition-all duration-300">
+                                <button className="cursor-pointer w-full py-2.5 rounded font-medium text-sm bg-red-500 hover:bg-red-600 text-white transition-all duration-300">
                                     Log In
                                 </button>
                             </Link>

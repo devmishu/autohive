@@ -2,6 +2,7 @@
 import { authClient } from "@/lib/auth-client";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import { Icon } from "@iconify/react";
+import Image from "next/image";
 import Link from "next/link";
 import toast from "react-hot-toast";
 
@@ -12,7 +13,7 @@ const SingInPage = () => {
 
         const formData = new FormData(e.target);
 
-        
+
         const signinData = Object.fromEntries(formData.entries());
 
         console.log(signinData);
@@ -32,7 +33,7 @@ const SingInPage = () => {
             toast.success('Login Successfully');
 
         }
-        if (error) { 
+        if (error) {
             toast.error(error.message);
         }
 
@@ -48,10 +49,10 @@ const SingInPage = () => {
     return (
         <div className="app-container min-h-[85vh] mt-24 flex justify-center items-center">
 
-           
+
             <div className="card-primary flex flex-col md:flex-row items-stretch w-full md:max-w-4xl  overflow-hidden shadow-xl">
 
-                
+
                 <div className="hidden md:flex md:w-1/2 bg-zinc-100 dark:bg-zinc-900/50 p-10 flex-col justify-between border-r border-zinc-200 dark:border-zinc-700">
                     <div className="space-y-4">
                         <div className="flex items-center space-x-2 text-2xl font-bold tracking-wide">
@@ -66,7 +67,20 @@ const SingInPage = () => {
                         </p>
                     </div>
 
-                    
+                    <div className='my-3 rounded relative w-full h-64 md:h-72 bg-gray-900 overflow-hidden'>
+                        <Image
+                            src={`/assets/images/herobg.jpg`}
+                            alt={`image`}
+                            fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            className='object-cover object-center'
+                            priority={true}
+
+                        />
+
+                    </div>
+
+
                     <div className="p-4 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800">
                         <p className="text-primary text-xs font-bold mb-1">💡 Smart Rental Tip</p>
                         <p className="text-secondary text-[11px] leading-normal">
@@ -75,10 +89,10 @@ const SingInPage = () => {
                     </div>
                 </div>
 
-               
+
                 <div className="w-full md:w-1/2 p-6 sm:p-10 flex flex-col justify-center">
 
-                   
+
                     <div className="mb-6">
                         <h3 className="text-xl font-bold text-primary mb-1">Account Login</h3>
                         <p className="text-secondary text-xs">Enter your credentials to secure your session</p>
@@ -88,7 +102,7 @@ const SingInPage = () => {
                         className="flex flex-col gap-4 w-full"
                         onSubmit={handleSignin}
                     >
-                       
+
                         <TextField
                             isRequired
                             name="email"
@@ -106,7 +120,7 @@ const SingInPage = () => {
                             <FieldError className="text-xs text-red-500 mt-1" />
                         </TextField>
 
-                        
+
                         <TextField
                             isRequired
                             minLength={8}
@@ -128,7 +142,7 @@ const SingInPage = () => {
                             <FieldError className="text-xs text-red-500 mt-1" />
                         </TextField>
 
-                        
+
                         <div className="flex gap-3 mt-2">
                             <button type="submit" className="button-primary flex-1 justify-center py-2.5 text-sm font-medium">
                                 Log In
@@ -139,14 +153,14 @@ const SingInPage = () => {
                         </div>
                     </Form>
 
-                    
+
                     <div className="relative flex py-4 items-center">
                         <div className="flex-grow border-t border-zinc-200 dark:border-zinc-700"></div>
                         <span className="flex-shrink mx-4 text-secondary text-xs">Or continue with</span>
                         <div className="flex-grow border-t border-zinc-200 dark:border-zinc-700"></div>
                     </div>
 
-                    
+
                     <Button
                         onClick={signIn}
                         className="w-full dark:bg-black " variant="tertiary">
@@ -155,7 +169,7 @@ const SingInPage = () => {
                         Sign in with Google
                     </Button>
 
-                    
+
                     <p className="text-secondary text-xs text-center mt-6">
                         Don't have an account?{" "}
                         <Link href="/signup" className="text-red-600 dark:text-red-500 font-semibold hover:underline">

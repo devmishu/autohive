@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚗 DriveFleet - Car Rental Platform
 
-## Getting Started
+A modern and responsive full-stack car rental platform where users can explore available cars, view detailed car information, book vehicles, manage bookings, and add their own car listings securely.
 
-First, run the development server:
+---
+
+# 📸 Project Screenshot
+
+<img src="./public/assets/images/projectphoto.png" alt="Project Screenshot" />
+
+---
+
+# 🔗 Live URL
+
+[DriveFleet Live Website](https://autohive-sepia.vercel.app)
+
+---
+
+# 📌 Project Purpose
+
+AutoHive is built to provide a smooth and modern car rental experience through a clean and user-friendly interface.
+
+Users can browse available cars, search and filter vehicles, view detailed car information, book cars, and manage their personal bookings. The platform also allows authenticated users to add, update, and delete their own car listings securely.
+
+---
+
+# ✨ Key Features
+
+- Responsive design for mobile, tablet, and desktop
+- Modern and recruiter-friendly UI
+- Dynamic Available Cars section from database
+- Explore Cars page with search and filter functionality
+- Detailed single car information page
+- Secure authentication with email/password and Google login
+- JWT authentication with HTTPOnly cookies
+- Protected private routes
+- Add new car listings
+- Update and delete own added cars
+- Book cars with booking management system
+- Booking count increment using MongoDB `$inc`
+- My Bookings page for logged-in users
+- My Added Cars management dashboard
+- Loading spinner during data fetching
+- Custom 404 Not Found page
+- Toast notifications for success and error handling
+- Environment variables for secure configuration
+
+---
+
+# 🛠️ Technologies Used
+
+## Frontend
+
+- [Next.js](https://nextjs.org?utm_source=chatgpt.com)
+- [React](https://react.dev?utm_source=chatgpt.com)
+- [Tailwind CSS](https://tailwindcss.com?utm_source=chatgpt.com)
+- [HeroUI](https://heroui.com/)
+- [Framer Motion](https://www.framer.com/motion/?utm_source=chatgpt.com)
+
+---
+
+## Backend & Database
+
+- [Node.js](https://nodejs.org?utm_source=chatgpt.com)
+- [Express.js](https://expressjs.com?utm_source=chatgpt.com)
+- [MongoDB](https://www.mongodb.com?utm_source=chatgpt.com)
+
+---
+
+# 📦 NPM Packages Used
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+next
+react
+react-dom
+tailwindcss
+heroui
+framer-motion
+betterauth
+jsonwebtoken
+cors
+dotenv
+mongodb
+express
+react-hottosat
+react-icons
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+# 🔍 Search & Filter Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Search cars by car name using MongoDB `$regex`
+- Filter cars by car type
+- Show available and unavailable cars
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+# 🔒 Security Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- JWT Token Authentication
+- HTTPOnly Cookie Storage
+- Protected Private Routes
+- Protected Backend APIs
+- Environment Variable Protection
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+# 📱 Responsive Design
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The website is fully responsive for:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Mobile Devices
+- Tablets
+- Desktop Screens
+
+---

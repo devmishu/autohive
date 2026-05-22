@@ -42,7 +42,7 @@ const CarForm = () => {
 
             toast.success(`${data.message}`);
             revalidateAnyPath("/explorecars");
-            router.push('/explorecars');
+            router.push('/manage-cars/myaddedcars');
 
         } catch (error) {
             toast.error(error.message);

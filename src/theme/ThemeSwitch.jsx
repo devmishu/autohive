@@ -24,9 +24,10 @@ export function ThemeSwitch() {
             {({ isSelected }) => (
                 <div className="size-[25px] bg-white rounded-full flex items-center justify-center shadow-sm">
                     {isSelected ? (
-                        <Moon className="size-3.5 text-zinc-900" />
-                    ) : (
                         <Sun className="size-3.5 text-amber-500" />
+                    ) : (
+
+                        <Moon className="size-3.5 text-zinc-900" />
                     )}
                 </div>
             )}
